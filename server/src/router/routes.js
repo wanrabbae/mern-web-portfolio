@@ -1,20 +1,19 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const upload = multer({
+    dest: 'uploads/'
+});
+
+const aboutController = require('../controllers/aboutController');
+
 
 // about
 router.route('/about')
-    .get((req, res) => {
-        res.send('about (Server)')
-    })
-    .post((req, res) => {
-        res.send('about post (Server)')
-    })
-    .patch((req, res) => {
-        res.send('about patch (Server)')
-    })
-    .delete((req, res) => {
-        res.send('about delete (Server)')
-    })
+    .get(aboutController.getAboutContent)
+    .post(upload.single('profile'), aboutController.postAboutContent)
+router.put('/about/:id', upload.single('profile'), aboutController.updateAboutContent)
+router.delete('/about/:id', aboutController.deleteAboutContent)
 
 // education
 router.route('/education')
