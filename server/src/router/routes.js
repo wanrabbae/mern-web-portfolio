@@ -6,7 +6,12 @@ const upload = multer({
 });
 
 const aboutController = require('../controllers/aboutController');
+const userController = require('../controllers/userController');
 
+
+// auth / user ctrl / sign in
+router.get('/admins', userController.getAll);
+router.post('/signin', userController.signin);
 
 // about
 router.route('/about')
