@@ -2,11 +2,20 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const upload = multer({
-    dest: 'uploads/'
+    dest: 'uploads/',
+    limits: {
+        fileSize: 10 * 1024 * 1024 // 10MB
+    }
 });
 
-const aboutController = require('../controllers/aboutController');
+// middleware
+const {
+    auth
+} = require('../middlewares/auth');
+
 const userController = require('../controllers/userController');
+const aboutController = require('../controllers/aboutController');
+const educationController = require('../controllers/educationController');
 
 
 // auth / user ctrl / sign in
@@ -16,24 +25,22 @@ router.post('/signin', userController.signin);
 // about
 router.route('/about')
     .get(aboutController.getAboutContent)
-    .post(upload.single('profile'), aboutController.postAboutContent)
-router.put('/about/:id', upload.single('profile'), aboutController.updateAboutContent)
-router.delete('/about/:id', aboutController.deleteAboutContent)
+    .post(auth, upload.single('profile'), aboutController.postAboutContent)
+
+router.put('/about/:id', auth, upload.single('profile'), aboutController.updateAboutContent)
+router.delete('/about/:id', auth, aboutController.deleteAboutContent)
+
+
 
 // education
 router.route('/education')
-    .get((req, res) => {
-        res.send('education (Server)')
-    })
-    .post((req, res) => {
-        res.send('education post (Server)')
-    })
-    .patch((req, res) => {
-        res.send('education patch (Server)')
-    })
-    .delete((req, res) => {
-        res.send('education delete (Server)')
-    })
+    .get(educationController.getEducationContent)
+    .post(auth, educationController.postEducationContent)
+
+router.put('/education/:id', auth, educationController.updateEducationContent)
+router.delete('/education/:id', auth, educationController.deleteEducationContent)
+
+
 
 // experience
 router.route('/experience')
@@ -43,12 +50,14 @@ router.route('/experience')
     .post((req, res) => {
         res.send('experience post (Server)')
     })
-    .patch((req, res) => {
+    .put((req, res) => {
         res.send('experience patch (Server)')
     })
     .delete((req, res) => {
         res.send('experience delete (Server)')
     })
+
+
 
 // skills
 router.route('/skills')
@@ -58,12 +67,14 @@ router.route('/skills')
     .post((req, res) => {
         res.send('skills post (Server)')
     })
-    .patch((req, res) => {
+    .put((req, res) => {
         res.send('skills patch (Server)')
     })
     .delete((req, res) => {
         res.send('skills delete (Server)')
     })
+
+
 
 // projects
 router.route('/projects')
@@ -73,12 +84,14 @@ router.route('/projects')
     .post((req, res) => {
         res.send('projects post (Server)')
     })
-    .patch((req, res) => {
+    .put((req, res) => {
         res.send('projects patch (Server)')
     })
     .delete((req, res) => {
         res.send('projects delete (Server)')
     })
+
+
 
 // contact
 router.route('/contact')
@@ -88,7 +101,7 @@ router.route('/contact')
     .post((req, res) => {
         res.send('contact post (Server)')
     })
-    .patch((req, res) => {
+    .put((req, res) => {
         res.send('contact patch (Server)')
     })
     .delete((req, res) => {

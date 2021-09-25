@@ -1,6 +1,6 @@
-const moongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-const aboutSchema = new moongoose.Schema({
+const aboutSchema = new mongoose.Schema({
     profile: {
         type: {
             url: String,
@@ -14,6 +14,6 @@ const aboutSchema = new moongoose.Schema({
     }
 })
 
-const AboutModel = moongoose.model('About', aboutSchema);
+const AboutModel = mongoose.model('About', aboutSchema);
 
 module.exports = AboutModel;
