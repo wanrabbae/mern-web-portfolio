@@ -16,6 +16,7 @@ const {
 const userController = require('../controllers/userController');
 const aboutController = require('../controllers/aboutController');
 const educationController = require('../controllers/educationController');
+const experienceController = require('../controllers/experienceController');
 
 
 // auth / user ctrl / sign in
@@ -44,18 +45,11 @@ router.delete('/education/:id', auth, educationController.deleteEducationContent
 
 // experience
 router.route('/experience')
-    .get((req, res) => {
-        res.send('experience (Server)')
-    })
-    .post((req, res) => {
-        res.send('experience post (Server)')
-    })
-    .put((req, res) => {
-        res.send('experience patch (Server)')
-    })
-    .delete((req, res) => {
-        res.send('experience delete (Server)')
-    })
+    .get(experienceController.getExperienceContent)
+    .post(auth, experienceController.postExperienceContent)
+
+router.put('/experience/:id', auth, experienceController.updateExperienceContent)
+router.delete('/experience/:id', auth, experienceController.deleteExperienceContent)
 
 
 

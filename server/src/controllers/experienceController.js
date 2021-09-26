@@ -1,40 +1,43 @@
-const EducationModel = require('../models/EducationModel');
+const ExperienceModel = require('../models/ExperienceModel');
 
-
-const getEducationContent = async (req, res) => {
-    const education = await EducationModel.find()
+const getExperienceContent = async (req, res) => {
+    const experience = await ExperienceModel.find()
 
     res.json({
         code: 200,
         status: 'success',
-        data: education
+        data: experience
     });
 }
 
-const postEducationContent = async (req, res) => {
+const postExperienceContent = async (req, res) => {
     const {
         title,
-        school,
+        company,
         city,
         startDate,
         endDate,
+        description,
+        technologies
     } = req.body;
 
-    const education = new EducationModel({
+    const experience = new ExperienceModel({
         title,
-        school,
+        company,
         city,
         startDate: new Date(startDate).toDateString(),
         endDate: new Date(endDate).toDateString(),
+        description,
+        technologies
     });
 
     try {
-        await education.save();
+        await experience.save();
 
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'Education content has been successfully added'
+            message: 'Experience content has been successfully added'
         });
     } catch (error) {
         res.status(500).json({
@@ -45,28 +48,28 @@ const postEducationContent = async (req, res) => {
     }
 }
 
-const deleteEducationContent = async (req, res) => {
+const deleteExperienceContent = async (req, res) => {
     const {
         id
     } = req.params
 
     try {
-        const education = await EducationModel.findById(id)
+        const experience = await ExperienceModel.findById(id)
 
-        if (!education) {
+        if (!experience) {
             return res.status(404).json({
                 code: 404,
                 status: 'failed',
-                message: 'Education content not found'
+                message: 'Experience content not found'
             })
         }
 
-        await education.remove()
+        await experience.remove()
 
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'Education content has been successfully deleted'
+            message: 'Experience content has been successfully deleted'
         })
 
     } catch (error) {
@@ -78,46 +81,50 @@ const deleteEducationContent = async (req, res) => {
     }
 }
 
-const updateEducationContent = async (req, res) => {
+const updateExperienceContent = async (req, res) => {
     const {
         id
     } = req.params
 
     const {
         title,
-        school,
+        company,
         city,
         startDate,
         endDate,
+        description,
+        technologies
     } = req.body;
 
     try {
-        const education = await EducationModel.findById(id)
+        const experience = await ExperienceModel.findById(id)
 
-        if (!education) {
+        if (!experience) {
             return res.status(404).json({
                 code: 404,
                 status: 'failed',
-                message: 'Education content not found'
+                message: 'Experience content not found'
             })
         }
 
-        await EducationModel.updateOne({
+        await ExperienceModel.updateOne({
             _id: id
         }, {
             $set: {
                 title,
-                school,
+                company,
                 city,
                 startDate: new Date(startDate).toDateString(),
                 endDate: new Date(endDate).toDateString(),
+                description,
+                technologies
             }
         })
 
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'Education content has been successfully updated'
+            message: 'Experience content has been successfully updated'
         })
 
     } catch (error) {
@@ -129,10 +136,9 @@ const updateEducationContent = async (req, res) => {
     }
 }
 
-
 module.exports = {
-    getEducationContent,
-    postEducationContent,
-    deleteEducationContent,
-    updateEducationContent
+    getExperienceContent,
+    postExperienceContent,
+    deleteExperienceContent,
+    updateExperienceContent
 }
