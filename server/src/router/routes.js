@@ -17,7 +17,7 @@ const userController = require('../controllers/userController');
 const aboutController = require('../controllers/aboutController');
 const educationController = require('../controllers/educationController');
 const experienceController = require('../controllers/experienceController');
-
+const skillController = require('../controllers/skillController');
 
 // auth / user ctrl / sign in
 router.get('/admins', userController.getAll);
@@ -31,8 +31,6 @@ router.route('/about')
 router.put('/about/:id', auth, upload.single('profile'), aboutController.updateAboutContent)
 router.delete('/about/:id', auth, aboutController.deleteAboutContent)
 
-
-
 // education
 router.route('/education')
     .get(educationController.getEducationContent)
@@ -40,8 +38,6 @@ router.route('/education')
 
 router.put('/education/:id', auth, educationController.updateEducationContent)
 router.delete('/education/:id', auth, educationController.deleteEducationContent)
-
-
 
 // experience
 router.route('/experience')
@@ -51,24 +47,13 @@ router.route('/experience')
 router.put('/experience/:id', auth, experienceController.updateExperienceContent)
 router.delete('/experience/:id', auth, experienceController.deleteExperienceContent)
 
-
-
 // skills
 router.route('/skills')
-    .get((req, res) => {
-        res.send('skills (Server)')
-    })
-    .post((req, res) => {
-        res.send('skills post (Server)')
-    })
-    .put((req, res) => {
-        res.send('skills patch (Server)')
-    })
-    .delete((req, res) => {
-        res.send('skills delete (Server)')
-    })
+    .get(skillController.getSkillContent)
+    .post(auth, skillController.postSkillContent)
 
-
+router.put('/skills/:id', auth, skillController.updateSkillContent)
+router.delete('/skills/:id', auth, skillController.deleteSkillContent)
 
 // projects
 router.route('/projects')
@@ -85,8 +70,6 @@ router.route('/projects')
         res.send('projects delete (Server)')
     })
 
-
-
 // contact
 router.route('/contact')
     .get((req, res) => {
@@ -101,5 +84,6 @@ router.route('/contact')
     .delete((req, res) => {
         res.send('contact delete (Server)')
     })
+
 
 module.exports = router;
