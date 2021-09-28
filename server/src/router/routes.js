@@ -18,6 +18,7 @@ const aboutController = require('../controllers/aboutController');
 const educationController = require('../controllers/educationController');
 const experienceController = require('../controllers/experienceController');
 const skillController = require('../controllers/skillController');
+const projectController = require('../controllers/projectController');
 
 // auth / user ctrl / sign in
 router.get('/admins', userController.getAll);
@@ -32,6 +33,7 @@ router.put('/about/:id', auth, upload.single('profile'), aboutController.updateA
 router.delete('/about/:id', auth, aboutController.deleteAboutContent)
 
 // education
+router.get('/education/:id', educationController.getOneEducationContent)
 router.route('/education')
     .get(educationController.getEducationContent)
     .post(auth, educationController.postEducationContent)
@@ -40,6 +42,7 @@ router.put('/education/:id', auth, educationController.updateEducationContent)
 router.delete('/education/:id', auth, educationController.deleteEducationContent)
 
 // experience
+router.get('/experience/:id', experienceController.getOneExperienceContent)
 router.route('/experience')
     .get(experienceController.getExperienceContent)
     .post(auth, experienceController.postExperienceContent)
@@ -48,6 +51,7 @@ router.put('/experience/:id', auth, experienceController.updateExperienceContent
 router.delete('/experience/:id', auth, experienceController.deleteExperienceContent)
 
 // skills
+router.get('/skills/:id', skillController.getOneSkillContent)
 router.route('/skills')
     .get(skillController.getSkillContent)
     .post(auth, skillController.postSkillContent)
@@ -56,34 +60,13 @@ router.put('/skills/:id', auth, skillController.updateSkillContent)
 router.delete('/skills/:id', auth, skillController.deleteSkillContent)
 
 // projects
+router.get('/projects/:id', projectController.getOneProjectContent)
 router.route('/projects')
-    .get((req, res) => {
-        res.send('projects (Server)')
-    })
-    .post((req, res) => {
-        res.send('projects post (Server)')
-    })
-    .put((req, res) => {
-        res.send('projects patch (Server)')
-    })
-    .delete((req, res) => {
-        res.send('projects delete (Server)')
-    })
+    .get(projectController.getProjectContent)
+    .post(auth, upload.single('image'), projectController.postProjectContent)
 
-// contact
-router.route('/contact')
-    .get((req, res) => {
-        res.send('contact (Server)')
-    })
-    .post((req, res) => {
-        res.send('contact post (Server)')
-    })
-    .put((req, res) => {
-        res.send('contact patch (Server)')
-    })
-    .delete((req, res) => {
-        res.send('contact delete (Server)')
-    })
+router.put('/projects/:id', auth, upload.single('image'), projectController.updateProjectContent)
+router.delete('/projects/:id', auth, projectController.deleteProjectContent)
 
 
 module.exports = router;

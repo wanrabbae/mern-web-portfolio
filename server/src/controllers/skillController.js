@@ -1,5 +1,27 @@
 const SkillModel = require('../models/SkillModel')
 
+const getOneSkillContent = async (req, res) => {
+    const {
+        id
+    } = req.params;
+
+    try {
+        const skill = await SkillModel.findById(id);
+        res.status(200).json({
+            code: 200,
+            status: 'success',
+            data: skill
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            code: 500,
+            status: 'failed',
+            message: 'Internal server error'
+        });
+    }
+}
+
 const getSkillContent = async (req, res) => {
     const skill = await SkillModel.find()
 
@@ -125,6 +147,7 @@ const updateSkillContent = async (req, res) => {
 }
 
 module.exports = {
+    getOneSkillContent,
     getSkillContent,
     postSkillContent,
     deleteSkillContent,

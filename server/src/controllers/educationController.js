@@ -1,5 +1,26 @@
 const EducationModel = require('../models/EducationModel');
 
+const getOneEducationContent = async (req, res) => {
+    const {
+        id
+    } = req.params;
+
+    try {
+        const education = await EducationModel.findById(id);
+        res.status(200).json({
+            code: 200,
+            status: 'success',
+            data: education
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            code: 500,
+            status: 'failed',
+            message: 'Internal server error'
+        });
+    }
+}
 
 const getEducationContent = async (req, res) => {
     const education = await EducationModel.find()
@@ -131,6 +152,7 @@ const updateEducationContent = async (req, res) => {
 
 
 module.exports = {
+    getOneEducationContent,
     getEducationContent,
     postEducationContent,
     deleteEducationContent,

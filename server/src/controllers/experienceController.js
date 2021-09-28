@@ -1,5 +1,27 @@
 const ExperienceModel = require('../models/ExperienceModel');
 
+const getOneExperienceContent = async (req, res) => {
+    const {
+        id
+    } = req.params;
+
+    try {
+        const experience = await ExperienceModel.findById(id);
+        res.status(200).json({
+            code: 200,
+            status: 'success',
+            data: experience
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            code: 500,
+            status: 'failed',
+            message: 'Internal server error'
+        });
+    }
+}
+
 const getExperienceContent = async (req, res) => {
     const experience = await ExperienceModel.find()
 
@@ -137,6 +159,7 @@ const updateExperienceContent = async (req, res) => {
 }
 
 module.exports = {
+    getOneExperienceContent,
     getExperienceContent,
     postExperienceContent,
     deleteExperienceContent,
