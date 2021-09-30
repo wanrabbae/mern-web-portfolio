@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
+:root {
+    --color-theme: #1d1f28;
+    --logo-color: #0095EB;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--logo-color);
+    border-radius: 5px;
+}
+
+* {
+    font-family: 'Lexend', sans-serif;
+    /* background-color: var(--color-theme);
+    color: white; */
+}

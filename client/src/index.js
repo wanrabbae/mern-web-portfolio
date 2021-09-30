@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 // Bootstrap
 import 'popper.js';
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
