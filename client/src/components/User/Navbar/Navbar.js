@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import logoImg from '../../../assets/images/logo.png'
 import style from './Navbar.module.css'
 
 function Navbar() {
@@ -9,7 +8,7 @@ function Navbar() {
             <nav className={`navbar navbar-expand-lg navbar-dark fixed-top ${style.navbarShadow}`}>
                 <div className="container py-2">
                     <NavLink to="/" className="navbar-brand">
-                        Alwan
+                        <span style={{ color: '#0095EB' }}>akhmadalwan</span>
                     </NavLink>
                     <button className={`navbar-toggler ${style.navbarHumbergerButton} ${style.navbarHumbergerButtonFocusOutline}`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

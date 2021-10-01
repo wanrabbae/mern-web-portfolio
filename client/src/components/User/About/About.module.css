@@ -1,0 +1,64 @@
+.emailColor {
+    color: #0095EB;
+}
+
+.flexBox {
+    display: flex;
+}
+
+.buttonSocial {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    margin-right: 10px;
+    transition: 0.1s;
+    border-radius: 7px;
+}
+
+.buttonSocial:hover {
+    transform: translate(50, 50);
+    opacity: 0.8;
+}
+
+.buttonSocialFocus:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+.btnFacebook {
+    background-color: #3b5998;
+    color: #fff;
+}
+
+.btnGithub {
+    background-color: #333;
+    color: #fff;
+}
+
+.btnInstagram {
+    background-color: #e1306c;
+    color: #fff;
+}
+
+.btnLinkedin {
+    background-color: #0077B5;
+    color: #fff;
+}
+
+.btnTwitter {
+    background-color: #1da1f2;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .flexBox {
+        flex-direction: column;
+    }
+
+    .buttonSocial {
+        margin-right: 0px;
+        margin-top: 10px;
+        width: 100%;
+    }
+}
