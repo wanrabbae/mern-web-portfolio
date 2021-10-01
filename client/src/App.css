@@ -10,7 +10,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: white;
+    background: var(--color-theme);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -20,6 +20,6 @@
 
 * {
     font-family: 'Lexend', sans-serif;
-    /* background-color: var(--color-theme);
-    color: white; */
+    background-color: var(--color-theme);
+    color: white;
 }

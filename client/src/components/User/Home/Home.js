@@ -1,12 +1,14 @@
 import React from 'react';
 // import homeImage from '../../../assets/images/dev.png';
-// import style from './Home.module.css'
+import style from './Home.module.css'
 
 function Home() {
     return (
-        <div className="text-center d-flex flex-column justify-content-center" style={{ height: '100vh' }}>
-            <h1>Hi! I'm <span style={{ color: '#0095EB' }}>Akhmad Alwan R</span></h1>
-            <h3>Software Developer. 17 years old.</h3>
+        <div className={`row justify-content-center align-items-center text-center ${style.home}`}>
+            <div className="col">
+                <h1>Hi! I'm <span className={style.nama}>Akhmad Alwan R</span></h1>
+                <h3>Backend Developer. 17 years old.</h3>
+            </div>
         </div>
     )
 }

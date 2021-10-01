@@ -29,6 +29,19 @@ function App() {
         {/* Admin */}
         {/* <Route path="/admin" component={Admin} /> */}
       </Switch>
+      <footer>
+        <div className="container">
+          <div className="row text-center">
+            <div className="col-md-12">
+              <p>
+                Created by <span style={{ color: '#0095EB' }}>Alwan</span>
+                <br />
+                With <span style={{ color: '#0095EB' }}>M.E.R.N</span> Stack
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
