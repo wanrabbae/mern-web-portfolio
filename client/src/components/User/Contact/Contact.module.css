@@ -1,0 +1,28 @@
+.input {
+    outline: none;
+    box-shadow: none;
+    border: 2px solid #ccc;
+    letter-spacing: 1px;
+}
+
+.input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btnSend {
+    background-color: #0095EB;
+    outline: none;
+    box-shadow: none;
+}
+
+.btnSend:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btnSend:hover {
+    background-color: #0179be;
+    outline: none;
+    box-shadow: none;
+}

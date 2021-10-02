@@ -9,90 +9,44 @@ function Education() {
                     <h2>Education</h2>
                 </div>
             </div>
-            <div className="row mt-3 justify-content-center">
-                <div className="col-md-5 mt-3">
-                    <div className={`card h-100 bg-transparent ${style.cardWrap}`}>
+            <div className="row mt-3">
+                <div className="col-md-10">
+                    <div className={`card h-100 bg-transparent border-0 ${style.cardWrap}`}>
                         <div className="card-body">
                             {/* TITTLE */}
                             <h5 className="card-title">
-                                <b>
-                                    <i className="fas fa-graduation-cap"></i> Engineer's Degree in Computer Science
-                                </b>
+                                Engineer's Degree in Computer Science
+
                             </h5>
                             {/* School And City */}
-                            <p className="card-text">
-                                <b>
-                                    <i className="fas fa-university"></i> SMK Informatika Al Irsyad Al Ilamiyyah - Cirebon
-                                </b>
-                            </p>
+                            <h6 className={`card-subtitle my-3 ${style.colorBlue}`}>
+                                SMK Informatika Al Irsyad Al Ilamiyyah - Cirebon
+
+                            </h6>
                             {/* Start Date And End Date */}
                             <p className="card-text">
-                                <b>
-                                    <i className="fas fa-calendar-alt"></i> May 2019 - May 2020
-                                </b>
+                                May 2019 - May 2020
                             </p>
                         </div>
                     </div>
                 </div>
-                <div className="col-md-5 mt-3">
-                    <div className={`card h-100 bg-transparent ${style.cardWrap}`}>
+                <hr />
+                <div className="col-md-10">
+                    <div className={`card h-100 bg-transparent border-0 ${style.cardWrap}`}>
                         <div className="card-body">
+                            {/* TITTLE */}
                             <h5 className="card-title">
-                                <b>
-                                    <i className="fas fa-graduation-cap"></i> Engineer's Degree in Computer Science
-                                </b>
+                                Engineer's Degree in Computer Science
+
                             </h5>
+                            {/* School And City */}
+                            <h6 className={`card-subtitle my-3 ${style.colorBlue}`}>
+                                SMK Informatika Al Irsyad Al Ilamiyyah - Cirebon
+
+                            </h6>
+                            {/* Start Date And End Date */}
                             <p className="card-text">
-                                <b>
-                                    <i className="fas fa-university"></i> SMK Informatika Al Irsyad Al Ilamiyyah - Cirebon
-                                </b>
-                            </p>
-                            <p className="card-text">
-                                <b>
-                                    <i className="fas fa-calendar-alt"></i> May 2019 - May 2020
-                                </b>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-5 mt-3">
-                    <div className={`card h-100 bg-transparent ${style.cardWrap}`}>
-                        <div className="card-body">
-                            <h5 className="card-title">
-                                <b>
-                                    <i className="fas fa-graduation-cap"></i> Engineer's Degree in Computer Science
-                                </b>
-                            </h5>
-                            <p className="card-text">
-                                <b>
-                                    <i className="fas fa-university"></i> SMK Informatika Al Irsyad Al Ilamiyyah - Cirebon
-                                </b>
-                            </p>
-                            <p className="card-text">
-                                <b>
-                                    <i className="fas fa-calendar-alt"></i> May 2019 - May 2020
-                                </b>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-5 mt-3">
-                    <div className={`card h-100 bg-transparent ${style.cardWrap}`}>
-                        <div className="card-body">
-                            <h5 className="card-title">
-                                <b>
-                                    <i className="fas fa-graduation-cap"></i> Engineer's Degree in Computer Science
-                                </b>
-                            </h5>
-                            <p className="card-text">
-                                <b>
-                                    <i className="fas fa-university"></i> SMK Informatika Al Irsyad Al Ilamiyyah - Cirebon
-                                </b>
-                            </p>
-                            <p className="card-text">
-                                <b>
-                                    <i className="fas fa-calendar-alt"></i> May 2019 - May 2020
-                                </b>
+                                May 2019 - May 2020
                             </p>
                         </div>
                     </div>

@@ -1,8 +1,7 @@
 .cardWrap {
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
     cursor: default;
 }
 
-.cardWrap:hover {
-    box-shadow: 9px 9px 9px 0px rgba(0, 0, 0, 0.4);
+.colorBlue {
+    color: #0095EB;
 }
