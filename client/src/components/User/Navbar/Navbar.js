@@ -21,6 +21,7 @@ function Navbar() {
                             <NavLink to="/experience" className="nav-link">Experience</NavLink>
                             <NavLink to="/skills" className="nav-link">Skills</NavLink>
                             <NavLink to="/Projects" className="nav-link">Projects</NavLink>
+                            <NavLink to="/certificate" className="nav-link">Certificate</NavLink>
                             <NavLink to="/Contact" className="nav-link">Contact</NavLink>
                         </div>
                         <div className="navbar-nav ms-auto">
