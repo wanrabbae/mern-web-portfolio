@@ -19,6 +19,7 @@ const educationController = require('../controllers/educationController');
 const experienceController = require('../controllers/experienceController');
 const skillController = require('../controllers/skillController');
 const projectController = require('../controllers/projectController');
+const certificateController = require('../controllers/certificateController')
 
 // auth / user ctrl / sign in
 router.get('/admins', userController.getAll);
@@ -67,6 +68,14 @@ router.route('/projects')
 
 router.put('/projects/:id', auth, upload.single('image'), projectController.updateProjectContent)
 router.delete('/projects/:id', auth, projectController.deleteProjectContent)
+
+router.get('/certificate/:id', certificateController.getOneCertificateContent)
+router.route('/certificate')
+    .get(certificateController.getCertificateContent)
+    .post(auth, upload.single('image'), certificateController.postCertificateContent)
+
+router.put('/certificate/:id', auth, upload.single('image'), certificateController.updateCertificateContent)
+router.delete('/certificate/:id', auth, certificateController.deleteCertificateContent)
 
 
 module.exports = router;
