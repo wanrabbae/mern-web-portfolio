@@ -9,9 +9,9 @@ function Contact() {
                     <h2>Contact</h2>
                 </div>
             </div>
-            <div className="row mt-3 justify-content-center align-items-center">
-                <div className="col-md-8">
-                    <form>
+            <div className="row mt-5 justify-content-center">
+                <div className="col-md-12">
+                    <form data-aos-duration="1000" data-aos="fade-up">
                         <div className="row justify-content-center">
                             <div className="col-md-4 mb-3">
                                 <label htmlFor="name">Your name</label>
@@ -27,9 +27,9 @@ function Contact() {
                                 <label htmlFor="subject">Subject</label>
                                 <input required type="text" className={`form-control text-white bg-transparent ${style.input}`} id="subject" />
                             </div>
-                            <div className="col-md-8 mb-3">
+                            <div className="col-md-8 mb-5">
                                 <label htmlFor="message">Your message</label>
-                                <textarea required name="message" id="message" row="30" cols="10" className={`form-control text-white bg-transparent ${style.input}`}></textarea>
+                                <textarea required name="message" id="message" row="30" cols="10" className={`form-control text-white bg-transparent h-100 ${style.input}`}></textarea>
                             </div>
                         </div>
                         <div className="row justify-content-center">
@@ -39,37 +39,34 @@ function Contact() {
                         </div>
                     </form>
                 </div>
-                <div className="col-md-4">
-                    <div className="row flex-column">
-                        <div className="col">
-                            <h6>
-                                <span className="text-white text-center">
-                                    <i className="fas fa-map-marker-alt"></i>
-                                    <br />
-                                    Indonesia, Jawa Barat, Cirebon
-                                </span>
-                            </h6>
+                {/* <div className="col-md-4">
+                    <div className="row justify-content-center">
+                        <div className="row flex-column text-center mb-3">
+                            <div className="col">
+                                <i className="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div className="col">
+                                <h6>Indonesia, Jawa Barat, Cirebon</h6>
+                            </div>
                         </div>
-                        <div className="col">
-                            <h6>
-                                <span className="text-white text-center">
-                                    <i className="fas fa-map-marker-alt"></i>
-                                    <br />
-                                    Indonesia, Jawa Barat, Cirebon
-                                </span>
-                            </h6>
+                        <div className="row flex-column text-center mb-3">
+                            <div className="col">
+                                <i className="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div className="col">
+                                <h6>Indonesia, Jawa Barat, Cirebon</h6>
+                            </div>
                         </div>
-                        <div className="col">
-                            <h6>
-                                <span className="text-white text-center">
-                                    <i className="fas fa-map-marker-alt"></i>
-                                    <br />
-                                    Indonesia, Jawa Barat, Cirebon
-                                </span>
-                            </h6>
+                        <div className="row flex-column text-center mb-3">
+                            <div className="col">
+                                <i className="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div className="col">
+                                <h6>Indonesia, Jawa Barat, Cirebon</h6>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

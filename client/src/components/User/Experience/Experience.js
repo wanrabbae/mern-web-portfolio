@@ -10,7 +10,7 @@ function Experience() {
                 </div>
             </div>
             <div className="row mt-3">
-                <div className="col-md-10">
+                <div className="col-md-10" data-aos-duration="1000" data-aos="zoom-in">
                     <div className="card h-100 mb-4 bg-transparent border-0">
                         <div className="card-body">
                             <h5 className="card-title">Software Engineer</h5>
@@ -33,7 +33,7 @@ function Experience() {
                     </div>
                 </div>
                 <hr />
-                <div className="col-md-10">
+                <div className="col-md-10" data-aos-duration="1000" data-aos="zoom-in">
                     <div className="card h-100 mb-4 bg-transparent border-0">
                         <div className="card-body">
                             <h5 className="card-title">Backend Engineer</h5>

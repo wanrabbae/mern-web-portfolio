@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "aos": "^3.0.0-beta.6",
     "axios": "^0.21.4",
     "bootstrap": "^5.1.1",
     "popper.js": "^1.16.1",

@@ -10,7 +10,7 @@ function Education() {
                 </div>
             </div>
             <div className="row mt-3">
-                <div className="col-md-10">
+                <div className="col-md-10" data-aos-duration="1000" data-aos="zoom-in">
                     <div className={`card h-100 bg-transparent border-0 ${style.cardWrap}`}>
                         <div className="card-body">
                             {/* TITTLE */}
@@ -31,7 +31,7 @@ function Education() {
                     </div>
                 </div>
                 <hr />
-                <div className="col-md-10">
+                <div className="col-md-10" data-aos-duration="1000" data-aos="zoom-in">
                     <div className={`card h-100 bg-transparent border-0 ${style.cardWrap}`}>
                         <div className="card-body">
                             {/* TITTLE */}

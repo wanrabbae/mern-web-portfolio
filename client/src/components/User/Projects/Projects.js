@@ -10,7 +10,7 @@ function Projects() {
                 </div>
             </div>
             <div className="row mt-3 justify-content-center">
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos-duration="1000" data-aos="zoom-out">
                     <div class="card mb-3 h-100 bg-transparent shadow-sm">
                         <img src="..." class="card-img-top" alt="..." />
                         <div class="card-body">
@@ -22,7 +22,7 @@ function Projects() {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos-duration="1000" data-aos="zoom-out">
                     <div class="card mb-3 h-100 bg-transparent shadow-sm">
                         <img src="..." class="card-img-top" alt="..." />
                         <div class="card-body">
@@ -34,7 +34,7 @@ function Projects() {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos-duration="1000" data-aos="zoom-out">
                     <div class="card mb-3 h-100 bg-transparent shadow-sm">
                         <img src="..." class="card-img-top" alt="..." />
                         <div class="card-body">
@@ -46,7 +46,7 @@ function Projects() {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos-duration="1000" data-aos="zoom-out">
                     <div class="card mb-3 h-100 bg-transparent shadow-sm">
                         <img src="..." class="card-img-top" alt="..." />
                         <div class="card-body">
@@ -58,7 +58,7 @@ function Projects() {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos-duration="1000" data-aos="zoom-out">
                     <div class="card mb-3 h-100 bg-transparent shadow-sm">
                         <img src="..." class="card-img-top" alt="..." />
                         <div class="card-body">
@@ -70,7 +70,7 @@ function Projects() {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos-duration="1000" data-aos="zoom-out">
                     <div class="card mb-3 h-100 bg-transparent shadow-sm">
                         <img src="..." class="card-img-top" alt="..." />
                         <div class="card-body">

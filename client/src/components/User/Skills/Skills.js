@@ -9,7 +9,7 @@ function Skills() {
                 </div>
             </div>
             <div className="row justify-content-center mt-3">
-                <div className="col-md-3">
+                <div className="col-md-3" data-aos-duration="1000" data-aos="flip-right">
                     <div className={`card mb-3 bg-transparent border-0 h-100 shadow-sm`}>
                         <div className="card-body">
                             <h5 className="card-title">Languages</h5>
@@ -22,7 +22,7 @@ function Skills() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3" data-aos-duration="1000" data-aos="flip-right">
                     <div className={`card mb-3 bg-transparent border-0 h-100 shadow-sm`}>
                         <div className="card-body">
                             <h5 className="card-title">Frontend</h5>
@@ -35,7 +35,7 @@ function Skills() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3" data-aos-duration="1000" data-aos="flip-right">
                     <div className={`card mb-3 bg-transparent border-0 h-100 shadow-sm`}>
                         <div className="card-body">
                             <h5 className="card-title">Backend</h5>
@@ -48,7 +48,7 @@ function Skills() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3" data-aos-duration="1000" data-aos="flip-right">
                     <div className={`card mb-3 bg-transparent border-0 h-100 shadow-sm`}>
                         <div className="card-body">
                             <h5 className="card-title">Tools</h5>

@@ -1,4 +1,6 @@
 import React from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './App.css'
 import { Route, Switch } from "react-router-dom";
 import Navbar from "./components/User/Navbar/Navbar";
@@ -9,6 +11,8 @@ import Experience from "./components/User/Experience/Experience";
 import Skills from "./components/User/Skills/Skills";
 import Projects from "./components/User/Projects/Projects";
 import Contact from "./components/User/Contact/Contact";
+
+AOS.init();
 
 function App() {
   const [isLogin, setIsLogin] = React.useState(false);
@@ -36,7 +40,7 @@ function App() {
             </div>
           </Switch>
         </div>}
-      <footer>
+      {/* <footer>
         <div className="container">
           <div className="row text-center">
             <div className="col-md-12">
@@ -48,7 +52,7 @@ function App() {
             </div>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }

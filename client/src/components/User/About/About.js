@@ -10,7 +10,7 @@ function About() {
                     <h2>About Me</h2>
                 </div>
             </div>
-            <div className="row justify-content-center align-items-center mt-3">
+            <div className="row justify-content-center align-items-center mt-3" data-aos="fade-down" data-aos-duration="1000">
                 <div className="col-md-4">
                     <img src={logoImg} alt="logo" width="250" className="img-fluid mx-auto" />
                 </div>
@@ -29,10 +29,10 @@ function About() {
             </div>
             <hr />
             <div>
-                <p>
-                    You can reach me out via email at <span className={style.emailColor}>alwanrabbae@gmail.com</span>, or via socials below:
+                <p data-aos="fade-up" data-aos-duration="1000">
+                    You can reach me out via email at <a href="mailto:alwanrabbae@gmail.com" target="_blank" rel="noreferrer" className={`${style.emailColor}`}>alwanrabbae@gmail.com</a>, or via socials below:
                 </p>
-                <div className={style.flexBox}>
+                <div className={style.flexBox} data-aos="fade-up" data-aos-duration="1000">
                     <div className="flex1">
                         <a target="_blank" rel="noreferrer" href="https://www.facebook.com" className={`btn nav-link text-white ${style.btnFacebook} ${style.buttonSocial} ${style.buttonSocialFocus}`}><i className="fab fa-facebook-f"></i> Facebook</a>
                     </div>
