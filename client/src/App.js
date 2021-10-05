@@ -4,6 +4,11 @@ import 'aos/dist/aos.css';
 import './App.css'
 import { Route, Switch } from "react-router-dom";
 
+// Admin
+import NavbarAdmin from "./components/Admin/Navbar/NavbarAdmin";
+import HomeAdmin from "./components/Admin/Home/HomeAdmin";
+import AboutAdmin from "./components/Admin/About/AboutAdmin";
+
 // User
 import Navbar from "./components/User/Navbar/Navbar";
 import Home from "./components/User/Home/Home";
@@ -18,15 +23,16 @@ import Contact from "./components/User/Contact/Contact";
 AOS.init();
 
 function App() {
-  const [isLogin, setIsLogin] = React.useState(false);
+  const [isLogin, setIsLogin] = React.useState(true);
   return (
     <div className="App">
       {isLogin ? <div>
-        <h1>Sidebar Admin!</h1>
-        <h2>Admin Page</h2>
-        <button onClick={() => setIsLogin(false)} className="btn btn-danger">Logout</button>
+        <NavbarAdmin />
         <Switch>
-          <Route path="/about" component={About} />
+          <div className="container py-5">
+            <Route exact path="/" component={HomeAdmin} />
+            <Route exact path="/aboutadmin" component={AboutAdmin} />
+          </div>
         </Switch>
       </div>
         : <div>
