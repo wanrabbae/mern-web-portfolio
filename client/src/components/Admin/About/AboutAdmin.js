@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import DatePicker from 'react-datepicker';
 
 function AboutAdmin() {
+    const notifyEdit = () => toast.success('You clicked the button Edit!')
+    const notifyDelete = () => toast.warn('You clicked the button Delete!')
+
+    const [startDate, setStartDate] = useState(new Date());
+
+    console.log(startDate);
+
     return (
         <div className="py-5">
             <div className="row text-center">
@@ -23,15 +32,18 @@ function AboutAdmin() {
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Mark</td>
-                                <td>Otto</td>
+                                <td>sada</td>
                                 <td>
-                                    <a href="https://www.google.com" className="btn btn-danger me-2" onClick={() => { window.confirm('Are you sure ?'); }}>Delete</a>
-                                    <a href="https://www.google.com" className="btn btn-warning">Edit</a>
+                                    <a href="#" className="btn btn-danger me-2" onClick={notifyDelete}>Delete</a>
+                                    <a href="#" className="btn btn-warning" onClick={notifyEdit}>Edit</a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div className="mt-5">
+                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
             </div>
         </div>
     );

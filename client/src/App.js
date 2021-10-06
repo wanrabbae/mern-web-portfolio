@@ -3,6 +3,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './App.css'
 import { Route, Switch } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 // Admin
 import NavbarAdmin from "./components/Admin/Navbar/NavbarAdmin";
@@ -26,6 +29,7 @@ function App() {
   const [isLogin, setIsLogin] = React.useState(true);
   return (
     <div className="App">
+      <ToastContainer autoClose={3000} toastClassName="dark-toast" toastStyle={{ backgroundColor: "#1d1f28" }} />
       {isLogin ? <div>
         <NavbarAdmin />
         <Switch>
