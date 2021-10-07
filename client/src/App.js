@@ -11,6 +11,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import NavbarAdmin from "./components/Admin/Navbar/NavbarAdmin";
 import HomeAdmin from "./components/Admin/Home/HomeAdmin";
 import AboutAdmin from "./components/Admin/About/AboutAdmin";
+import EducationAdmin from "./components/Admin/Education/EducationAdmin";
+import ExperienceAdmin from "./components/Admin/Experience/ExperienceAdmin";
+import SkillsAdmin from "./components/Admin/Skills/SkillsAdmin";
+import ProjectsAdmin from "./components/Admin/Projects/ProjectsAdmin";
+import CertificateAdmin from "./components/Admin/Certificate/CertificateAdmin";
 
 // User
 import Navbar from "./components/User/Navbar/Navbar";
@@ -26,7 +31,7 @@ import Contact from "./components/User/Contact/Contact";
 AOS.init();
 
 function App() {
-  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(false);
   return (
     <div className="App">
       <ToastContainer autoClose={3000} toastClassName="dark-toast" toastStyle={{ backgroundColor: "#1d1f28" }} />
@@ -36,6 +41,11 @@ function App() {
           <div className="container py-5">
             <Route exact path="/" component={HomeAdmin} />
             <Route exact path="/aboutadmin" component={AboutAdmin} />
+            <Route exact path="/educationadmin" component={EducationAdmin} />
+            <Route exact path="/experienceadmin" component={ExperienceAdmin} />
+            <Route exact path="/skillsadmin" component={SkillsAdmin} />
+            <Route exact path="/projectsadmin" component={ProjectsAdmin} />
+            <Route exact path="/certificateadmin" component={CertificateAdmin} />
           </div>
         </Switch>
       </div>
