@@ -1,6 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 function EducationAdmin() {
+    const { data } = useSelector(state => state.educations);
+
+    const education = data.map((edu) => {
+        return (
+            <tr key={edu._id}>
+                <td>1</td>
+                <td>{edu.title}</td>
+                <td>{edu.school}</td>
+                <td>{edu.city}</td>
+                <td>{edu.startDate}</td>
+                <td>{edu.endDate}</td>
+                <td>
+                    <a href="#" className="btn btn-danger me-2">Delete</a>
+                    <a href="#" className="btn btn-warning text-white" >Edit</a>
+                </td>
+            </tr>
+        )
+    })
+
     return (
         <div className="py-5">
             <div className="row text-center">
@@ -27,7 +47,8 @@ function EducationAdmin() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                {education}
+                                {/* <tr>
                                     <th scope="row">1</th>
                                     <td>Student Software Engineer</td>
                                     <td>SMK Informatika Al-Irsyad Al-Islamiyyah</td>
@@ -38,7 +59,7 @@ function EducationAdmin() {
                                         <a href="#" className="btn btn-danger me-2">Delete</a>
                                         <a href="#" className="btn btn-warning text-white" >Edit</a>
                                     </td>
-                                </tr>
+                                </tr> */}
                             </tbody>
                         </table>
                     </div>

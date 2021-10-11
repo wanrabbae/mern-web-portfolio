@@ -31,12 +31,12 @@ import Contact from "./components/User/Contact/Contact";
 AOS.init();
 
 function App() {
-  const [isLogin, setIsLogin] = React.useState(false);
+  const [isLogin, setIsLogin] = React.useState(true);
   return (
     <div className="App">
       <ToastContainer autoClose={3000} toastClassName="dark-toast" toastStyle={{ backgroundColor: "#1d1f28" }} />
       {isLogin ? <div>
-        <NavbarAdmin />
+        <NavbarAdmin isLogged={setIsLogin} />
         <Switch>
           <div className="container py-5">
             <Route exact path="/" component={HomeAdmin} />
@@ -50,7 +50,7 @@ function App() {
         </Switch>
       </div>
         : <div>
-          <Navbar />
+          <Navbar isLogged={setIsLogin} />
           <Switch>
             <div className="container py-5">
               <Route exact path="/" component={Home} />

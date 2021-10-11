@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import style from './NavbarAdmin.module.css';
 
-function Sidebar() {
+function Sidebar({ isLogged }) {
     return (
         <div>
             <nav className={`navbar navbar-expand-lg navbar-dark fixed-top ${style.navbarShadow}`}>
@@ -23,7 +23,7 @@ function Sidebar() {
                             <NavLink to="/projectsadmin" className="nav-link">Projects</NavLink>
                             <NavLink to="/certificateadmin" className="nav-link">Certificate</NavLink>
                         </div>
-                        <div className="navbar-nav ms-auto">
+                        <div className="navbar-nav ms-auto" onClick={() => isLogged(false)}>
                             <NavLink to="/" className="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</NavLink>
                         </div>
                     </div>
