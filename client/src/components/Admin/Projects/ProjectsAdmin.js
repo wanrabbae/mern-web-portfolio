@@ -1,7 +1,35 @@
 import React from 'react';
-import logoImg from '../../../assets/images/logo.png';
+import { useSelector } from 'react-redux';
 
 function ProjectsAdmin() {
+    const { data } = useSelector(state => state.projects);
+
+    if (data === undefined) return <div>Loading...</div>
+
+    const project = data.map((prj, i) => {
+        return (
+            <tr key={prj._id} className="align-middle">
+                <td>{i + 1}</td>
+                <td>
+                    <img src={prj.image.url} alt="logo" width="250" className="img-fluid" />
+                </td>
+                <td>{prj.title}</td>
+                <td>{prj.description}</td>
+                <td>{prj.technologies}</td>
+                <td>
+                    <a href={prj.link}>Link</a>
+                </td>
+                <td>
+                    <a href={prj.github}>Link</a>
+                </td>
+                <td>
+                    <a href="www.google.com" className="btn btn-danger me-2">Delete</a>
+                    <a href="www.google.com" className="btn btn-warning text-white" >Edit</a>
+                </td>
+            </tr>
+        )
+    })
+
     return (
         <div className="py-5">
             <div className="row text-center">
@@ -29,25 +57,7 @@ function ProjectsAdmin() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="align-middle">
-                                    <th scope="row">1</th>
-                                    <td>
-                                        <img src={logoImg} alt="logo" width="250" className="img-fluid" />
-                                    </td>
-                                    <td>Dynamic Personal Website</td>
-                                    <td>A Dynamic Personal Website With M.E.R.N Stack</td>
-                                    <td>Mongo DB, Express JS, React JS, Node JS</td>
-                                    <td>
-                                        <a href="#">Link</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">Link</a>
-                                    </td>
-                                    <td>
-                                        <a href="#" className="btn btn-danger me-2">Delete</a>
-                                        <a href="#" className="btn btn-warning text-white" >Edit</a>
-                                    </td>
-                                </tr>
+                                {project}
                             </tbody>
                         </table>
                     </div>

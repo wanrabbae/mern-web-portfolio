@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 
 // Bootstrap
 import 'popper.js';
@@ -13,6 +12,10 @@ import thunk from 'redux-thunk';
 import allReducer from './reducers';
 import { getEducations } from './actions/educationAction';
 import { getAbout } from './actions/aboutAction';
+import { getExperiences } from './actions/experienceAction';
+import { getSkills } from './actions/skillAction';
+import { getProjects } from './actions/projectAction';
+import { getCertificates } from './actions/certificateAction';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -23,14 +26,16 @@ const store = createStore(allReducer, composeEnhancers(applyMiddleware(thunk)));
 
 store.dispatch(getEducations());
 store.dispatch(getAbout());
+store.dispatch(getExperiences());
+store.dispatch(getSkills());
+store.dispatch(getProjects());
+store.dispatch(getCertificates());
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

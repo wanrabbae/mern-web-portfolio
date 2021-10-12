@@ -1,6 +1,30 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 function ExperienceAdmin() {
+    const { data } = useSelector(state => state.experiences);
+
+    if (data === undefined) return <div>Loading...</div>
+
+    const experience = data.map((exp) => {
+        return (
+            <tr key={exp._id}>
+                <td>1</td>
+                <td>{exp.title}</td>
+                <td>{exp.company}</td>
+                <td>{exp.city}</td>
+                <td>{exp.startDate}</td>
+                <td>{exp.endDate}</td>
+                <td>{exp.description}</td>
+                <td>{exp.technologies}</td>
+                <td>
+                    <a href="www.google.com" className="btn btn-danger me-2">Delete</a>
+                    <a href="www.google.com" className="btn btn-warning text-white" >Edit</a>
+                </td>
+            </tr>
+        )
+    })
+
     return (
         <div className="py-5">
             <div className="row text-center">
@@ -29,20 +53,7 @@ function ExperienceAdmin() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Student Software Engineer</td>
-                                    <td>SMK Informatika Al-Irsyad Al-Islamiyyah</td>
-                                    <td>Cirebon</td>
-                                    <td>01-01-2021</td>
-                                    <td>01-01-2023</td>
-                                    <td>Lorem ipsum dolor sit</td>
-                                    <td>M.E.R.N Stack</td>
-                                    <td>
-                                        <a href="#" className="btn btn-danger me-2">Delete</a>
-                                        <a href="#" className="btn btn-warning text-white" >Edit</a>
-                                    </td>
-                                </tr>
+                                {experience}
                             </tbody>
                         </table>
                     </div>

@@ -9,18 +9,18 @@ function EducationAdmin() {
         return <div>Loading...</div>
     }
 
-    const education = data.map((edu) => {
+    const education = data.map((edu, i) => {
         return (
             <tr key={edu._id}>
-                <td>1</td>
+                <td>{i + 1}</td>
                 <td>{edu.title}</td>
                 <td>{edu.school}</td>
                 <td>{edu.city}</td>
                 <td>{edu.startDate}</td>
                 <td>{edu.endDate}</td>
                 <td>
-                    <a href="#" className="btn btn-danger me-2">Delete</a>
-                    <a href="#" className="btn btn-warning text-white" >Edit</a>
+                    <a href="www.google.com" className="btn btn-danger me-2">Delete</a>
+                    <a href="www.google.com" className="btn btn-warning text-white" >Edit</a>
                 </td>
             </tr>
         )

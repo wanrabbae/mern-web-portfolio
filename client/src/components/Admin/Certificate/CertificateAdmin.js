@@ -1,7 +1,24 @@
 import React from 'react';
-import logoImg from '../../../assets/images/logo.png';
+import { useSelector } from 'react-redux';
 
 function CertificateAdmin() {
+    const { data } = useSelector(state => state.certificates);
+
+    if (data === undefined) return <div>Loading...</div>
+
+    const certificate = data.map((crtf, i) => {
+        return (
+            <tr key={crtf._id} className="align-middle">
+                <td>{i + 1}</td>
+                <td><img src={crtf.image.url} alt="crtf" width="150" className="img-fluid" /></td>
+                <td>
+                    <a href="www.google.com" className="btn btn-danger me-2">Delete</a>
+                    <a href="www.google.com" className="btn btn-warning text-white" >Edit</a>
+                </td>
+            </tr>
+        )
+    })
+
     return (
         <div className="py-5">
             <div className="row text-center">
@@ -11,11 +28,11 @@ function CertificateAdmin() {
             </div>
             <div className="row mt-5" data-aos="fade-left" data-aos-duration="1000">
                 <div className="col-md-12">
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-                        <button class="btn btn-success" type="button">Add Certificate</button>
+                    <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+                        <button className="btn btn-success" type="button">Add Certificate</button>
                     </div>
                     <div className="table-responsive">
-                        <table class="table">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
@@ -24,16 +41,7 @@ function CertificateAdmin() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="align-middle">
-                                    <th scope="row">1</th>
-                                    <td>
-                                        <img src={logoImg} alt="logo" width="150" className="img-fluid" />
-                                    </td>
-                                    <td>
-                                        <a href="#" className="btn btn-danger me-2">Delete</a>
-                                        <a href="#" className="btn btn-warning text-white" >Edit</a>
-                                    </td>
-                                </tr>
+                                {certificate}
                             </tbody>
                         </table>
                     </div>

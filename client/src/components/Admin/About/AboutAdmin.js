@@ -8,10 +8,10 @@ function AboutAdmin() {
         return <div>Loading...</div>
     }
 
-    const about = data.map((abt) => {
+    const about = data.map((abt, i) => {
         return (
             <tr key={abt._id} className="align-middle">
-                <td>1</td>
+                <td>{i + 1}</td>
                 <td><img src={abt.profile.url} alt="logo" width="150" className="img-fluid" /></td>
                 <td>{abt.content}</td>
                 <td>
@@ -31,11 +31,11 @@ function AboutAdmin() {
             </div>
             <div className="row mt-5" data-aos="fade-right" data-aos-duration="1000">
                 <div className="col-md-12">
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-                        <button class="btn btn-success" type="button">Add About</button>
+                    <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+                        <button className="btn btn-success" type="button">Add About</button>
                     </div>
                     <div className="table-responsive">
-                        <table class="table">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>

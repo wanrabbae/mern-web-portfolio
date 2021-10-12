@@ -1,6 +1,27 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 function SkillsAdmin() {
+    const { data } = useSelector(state => state.skills);
+
+    if (data === undefined) return <div>Loading...</div>
+
+    const skill = data.map((skl, i) => {
+        return (
+            <tr key={skl._id}>
+                <td>{i + 1}</td>
+                <td>{skl.languages}</td>
+                <td>{skl.frontend}</td>
+                <td>{skl.backend}</td>
+                <td>{skl.tools}</td>
+                <td>
+                    <a href="www.google.com" className="btn btn-danger me-2">Delete</a>
+                    <a href="www.google.com" className="btn btn-warning text-white" >Edit</a>
+                </td>
+            </tr>
+        )
+    })
+
     return (
         <div className="py-5">
             <div className="row text-center">
@@ -26,17 +47,7 @@ function SkillsAdmin() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>JavaScript</td>
-                                    <td>React JS</td>
-                                    <td>Express JS</td>
-                                    <td>Git & Github</td>
-                                    <td>
-                                        <a href="#" className="btn btn-danger me-2">Delete</a>
-                                        <a href="#" className="btn btn-warning text-white" >Edit</a>
-                                    </td>
-                                </tr>
+                                {skill}
                             </tbody>
                         </table>
                     </div>

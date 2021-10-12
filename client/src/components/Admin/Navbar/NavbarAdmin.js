@@ -24,7 +24,7 @@ function Sidebar({ isLogged }) {
                             <NavLink to="/certificateadmin" className="nav-link">Certificate</NavLink>
                         </div>
                         <div className="navbar-nav ms-auto" onClick={() => isLogged(false)}>
-                            <NavLink to="/" className="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</NavLink>
+                            <NavLink to="/" className="nav-link"><i className="fas fa-sign-out-alt"></i> Logout</NavLink>
                         </div>
                     </div>
                 </div>
