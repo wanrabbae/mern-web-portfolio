@@ -12,6 +12,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import allReducer from './reducers';
 import { getEducations } from './actions/educationAction';
+import { getAbout } from './actions/aboutAction';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -21,6 +22,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(allReducer, composeEnhancers(applyMiddleware(thunk)));
 
 store.dispatch(getEducations());
+store.dispatch(getAbout());
 
 ReactDOM.render(
   <React.StrictMode>

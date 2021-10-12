@@ -1,8 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
+// import moment from 'moment';
 
 function EducationAdmin() {
     const { data } = useSelector(state => state.educations);
+
+    if (data === undefined) {
+        return <div>Loading...</div>
+    }
 
     const education = data.map((edu) => {
         return (
@@ -48,18 +53,6 @@ function EducationAdmin() {
                             </thead>
                             <tbody>
                                 {education}
-                                {/* <tr>
-                                    <th scope="row">1</th>
-                                    <td>Student Software Engineer</td>
-                                    <td>SMK Informatika Al-Irsyad Al-Islamiyyah</td>
-                                    <td>Cirebon</td>
-                                    <td>01-01-2021</td>
-                                    <td>01-01-2023</td>
-                                    <td>
-                                        <a href="#" className="btn btn-danger me-2">Delete</a>
-                                        <a href="#" className="btn btn-warning text-white" >Edit</a>
-                                    </td>
-                                </tr> */}
                             </tbody>
                         </table>
                     </div>

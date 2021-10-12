@@ -1,14 +1,26 @@
-import React, { useState } from 'react';
-import { toast } from 'react-toastify';
-import logoImg from '../../../assets/images/logo.png';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 function AboutAdmin() {
-    const notifyEdit = () => toast.success('You clicked the button Edit!')
-    const notifyDelete = () => toast.warn('You clicked the button Delete!')
+    const { data } = useSelector(state => state.abouts);
 
-    const [startDate, setStartDate] = useState(new Date());
+    if (data === undefined) {
+        return <div>Loading...</div>
+    }
 
-    console.log(startDate);
+    const about = data.map((abt) => {
+        return (
+            <tr key={abt._id} className="align-middle">
+                <td>1</td>
+                <td><img src={abt.profile.url} alt="logo" width="150" className="img-fluid" /></td>
+                <td>{abt.content}</td>
+                <td>
+                    <a href="www.google.com" className="btn btn-danger me-2">Delete</a>
+                    <a href="www.google.com" className="btn btn-warning text-white" >Edit</a>
+                </td>
+            </tr>
+        )
+    })
 
     return (
         <div className="py-5">
@@ -33,17 +45,7 @@ function AboutAdmin() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="align-middle">
-                                    <th scope="row">1</th>
-                                    <td>
-                                        <img src={logoImg} alt="logo" width="250" className="img-fluid" />
-                                    </td>
-                                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam tempore sunt inventore sequi earum temporibus esse fugiat porro expedita corrupti! lorem20</td>
-                                    <td>
-                                        <a href="#" className="btn btn-danger me-2" onClick={notifyDelete}>Delete</a>
-                                        <a href="#" className="btn btn-warning text-white" onClick={notifyEdit}>Edit</a>
-                                    </td>
-                                </tr>
+                                {about}
                             </tbody>
                         </table>
                     </div>
