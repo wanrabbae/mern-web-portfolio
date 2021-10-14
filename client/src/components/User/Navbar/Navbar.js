@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import style from './Navbar.module.css'
 
-function Navbar({ isLogged }) {
+function Navbar() {
     return (
         <div>
             <nav className={`navbar navbar-expand-lg navbar-dark fixed-top ${style.navbarShadow}`}>
@@ -24,8 +24,8 @@ function Navbar({ isLogged }) {
                             <NavLink to="/certificate" className="nav-link">Certificate</NavLink>
                             <NavLink to="/Contact" className="nav-link">Contact</NavLink>
                         </div>
-                        <div className="navbar-nav ms-auto" onClick={() => isLogged(true)}>
-                            <NavLink to="/" className="nav-link"><i className="fas fa-lock"></i> Sign In</NavLink>
+                        <div className="navbar-nav ms-auto">
+                            <NavLink to="/signin" className="nav-link active"><i className="fas fa-lock"></i> Sign In</NavLink>
                         </div>
                     </div>
                 </div>

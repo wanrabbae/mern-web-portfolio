@@ -1,6 +1,6 @@
 import React from 'react';
-import style from './About.module.css'
-import logoImg from '../../../assets/images/logo.png'
+import style from './About.module.css';
+import logoImg from '../../../assets/images/logo.png';
 
 function About() {
     return (

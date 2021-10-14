@@ -12,7 +12,7 @@ function Skills() {
                 <div className="col-md-3" data-aos-duration="1000" data-aos="flip-right">
                     <div className={`card mb-3 bg-transparent border-0 h-100 shadow-sm`}>
                         <div className="card-body">
-                            <h5 className="card-title">Languages</h5>
+                            <h5 className="card-title"><b>Languages</b></h5>
 
                             <h6 className="card-subtitle my-3">HTML && CSS</h6>
                             <h6 className="card-subtitle my-3">JavaScript</h6>
@@ -25,7 +25,7 @@ function Skills() {
                 <div className="col-md-3" data-aos-duration="1000" data-aos="flip-right">
                     <div className={`card mb-3 bg-transparent border-0 h-100 shadow-sm`}>
                         <div className="card-body">
-                            <h5 className="card-title">Frontend</h5>
+                            <h5 className="card-title"><b>Frontend</b></h5>
 
                             <h6 className="card-subtitle my-3">HTML && CSS</h6>
                             <h6 className="card-subtitle my-3">JavaScript</h6>
@@ -38,7 +38,7 @@ function Skills() {
                 <div className="col-md-3" data-aos-duration="1000" data-aos="flip-right">
                     <div className={`card mb-3 bg-transparent border-0 h-100 shadow-sm`}>
                         <div className="card-body">
-                            <h5 className="card-title">Backend</h5>
+                            <h5 className="card-title"><b>Backend</b></h5>
 
                             <h6 className="card-subtitle my-3">HTML && CSS</h6>
                             <h6 className="card-subtitle my-3">JavaScript</h6>
@@ -51,7 +51,7 @@ function Skills() {
                 <div className="col-md-3" data-aos-duration="1000" data-aos="flip-right">
                     <div className={`card mb-3 bg-transparent border-0 h-100 shadow-sm`}>
                         <div className="card-body">
-                            <h5 className="card-title">Tools</h5>
+                            <h5 className="card-title"><b>Tools</b></h5>
 
                             <h6 className="card-subtitle my-3">HTML && CSS</h6>
                             <h6 className="card-subtitle my-3">JavaScript</h6>

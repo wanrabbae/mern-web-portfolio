@@ -10,24 +10,24 @@ function Certificate() {
                 </div>
             </div>
             <div className="row mt-3 justify-content-center">
-                <div class="col-md-4" data-aos-duration="1000" data-aos="fade-down">
-                    <div class="card mb-3 bg-transparent shadow-sm">
+                <div className="col-md-4" data-aos-duration="1000" data-aos="fade-down">
+                    <div className="card mb-3 bg-transparent shadow-sm">
                         <a href="http://www.google.com" target="_blank" rel="noopener noreferrer">
-                            <img src={certificateImg} class="card-img-top" alt="certificate" />
+                            <img src={certificateImg} className="card-img-top" alt="certificate" />
                         </a>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos-duration="1000" data-aos="fade-down">
-                    <div class="card mb-3 bg-transparent shadow-sm">
+                <div className="col-md-4" data-aos-duration="1000" data-aos="fade-down">
+                    <div className="card mb-3 bg-transparent shadow-sm">
                         <a href="http://www.google.com" target="_blank" rel="noopener noreferrer">
-                            <img src={certificateImg} class="card-img-top" alt="certificate" />
+                            <img src={certificateImg} className="card-img-top" alt="certificate" />
                         </a>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos-duration="1000" data-aos="fade-down">
-                    <div class="card mb-3 bg-transparent shadow-sm">
+                <div className="col-md-4" data-aos-duration="1000" data-aos="fade-down">
+                    <div className="card mb-3 bg-transparent shadow-sm">
                         <a href="http://www.google.com" target="_blank" rel="noopener noreferrer">
-                            <img src={certificateImg} class="card-img-top" alt="certificate" />
+                            <img src={certificateImg} className="card-img-top" alt="certificate" />
                         </a>
                     </div>
                 </div>

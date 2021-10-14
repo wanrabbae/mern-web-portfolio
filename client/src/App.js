@@ -19,6 +19,7 @@ import CertificateAdmin from "./components/Admin/Certificate/CertificateAdmin";
 
 // User
 import Navbar from "./components/User/Navbar/Navbar";
+import Login from "./components/Auth/Login";
 import Home from "./components/User/Home/Home";
 import About from "./components/User/About/About";
 import Education from "./components/User/Education/Education";
@@ -28,10 +29,13 @@ import Projects from "./components/User/Projects/Projects";
 import Certificate from "./components/User/Certificate/Certificate";
 import Contact from "./components/User/Contact/Contact";
 
+// utils
+import authCheck from "./utils/authCheck";
+
 AOS.init();
 
 function App() {
-  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(authCheck());
   return (
     <div className="App">
       <ToastContainer autoClose={3000} toastClassName="dark-toast" toastStyle={{ backgroundColor: "#1d1f28" }} />
@@ -41,17 +45,17 @@ function App() {
           <Switch>
             <div className="container py-5">
               <Route exact path="/" component={HomeAdmin} />
-              <Route exact path="/aboutadmin" component={AboutAdmin} />
-              <Route exact path="/educationadmin" component={EducationAdmin} />
-              <Route exact path="/experienceadmin" component={ExperienceAdmin} />
-              <Route exact path="/skillsadmin" component={SkillsAdmin} />
-              <Route exact path="/projectsadmin" component={ProjectsAdmin} />
-              <Route exact path="/certificateadmin" component={CertificateAdmin} />
+              <Route path="/aboutadmin" component={AboutAdmin} />
+              <Route path="/educationadmin" component={EducationAdmin} />
+              <Route path="/experienceadmin" component={ExperienceAdmin} />
+              <Route path="/skillsadmin" component={SkillsAdmin} />
+              <Route path="/projectsadmin" component={ProjectsAdmin} />
+              <Route path="/certificateadmin" component={CertificateAdmin} />
             </div>
           </Switch>
         </div>
           : <div>
-            <Navbar isLogged={setIsLogin} />
+            <Navbar />
             <Switch>
               <div className="container py-5">
                 <Route exact path="/" component={Home} />
@@ -62,6 +66,7 @@ function App() {
                 <Route path="/projects" component={Projects} />
                 <Route path="/certificate" component={Certificate} />
                 <Route path="/contact" component={Contact} />
+                <Route path="/signin" component={Login} />
               </div>
             </Switch>
           </div>}

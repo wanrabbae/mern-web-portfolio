@@ -1,0 +1,34 @@
+.foo {
+    height: 70vh;
+}
+
+.input {
+    outline: none;
+    box-shadow: none;
+    border: 2px solid #ccc;
+    letter-spacing: 1px;
+    background: none !important;
+    background-color: none !important;
+}
+
+.input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btnSubmit {
+    background-color: #0095EB;
+    outline: none;
+    box-shadow: none;
+}
+
+.btnSubmit:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btnSubmit:hover {
+    background-color: #0179be;
+    outline: none;
+    box-shadow: none;
+}
