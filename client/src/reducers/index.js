@@ -6,7 +6,8 @@ import educationReducer from "./education";
 import experienceReducer from './experience';
 import skillsReducer from './skill';
 import projectReducer from './project';
-import certificateReducer from './certificate'
+import certificateReducer from './certificate';
+import authReducer from "./auth";
 
 export default combineReducers({
     educations: educationReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
     experiences: experienceReducer,
     skills: skillsReducer,
     projects: projectReducer,
-    certificates: certificateReducer
+    certificates: certificateReducer,
+    login: authReducer
 })

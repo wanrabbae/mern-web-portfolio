@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { signinAction } from '../../actions/authAction';
 import style from './Login.module.css';
 
 function Login() {
+    const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -9,7 +12,7 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        dispatch(signinAction(formData))
     }
 
     return (
