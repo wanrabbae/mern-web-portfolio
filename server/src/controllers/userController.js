@@ -34,15 +34,11 @@ const signin = async (req, res) => {
         expiresIn: '1d'
     });
 
-    res.cookie('token', token, {
-        maxAge: 24 * 60 * 60 * 1000,
-        httpOnly: true
-    });
-
     res.json({
         status: 'success',
         message: 'Login berhasil!',
-        token
+        token,
+        isLogged: true
     });
 };
 
