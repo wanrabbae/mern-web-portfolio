@@ -34,11 +34,11 @@ function ExperienceAdmin() {
             </div>
             <div className="row mt-5" data-aos="fade-right" data-aos-duration="1000">
                 <div className="col-md-12">
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-                        <button class="btn btn-success" type="button">Add Experience</button>
+                    <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+                        <button className="btn btn-success" type="button">Add Experience</button>
                     </div>
                     <div className="table-responsive">
-                        <table class="table">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>

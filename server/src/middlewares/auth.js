@@ -6,7 +6,8 @@ exports.auth = (req, res, next) => {
     if (!token) {
         return res.status(401).json({
             status: 'failed',
-            message: 'Unauthorized'
+            message: 'Unauthorized',
+            isLogged: false
         })
     }
 
@@ -14,7 +15,8 @@ exports.auth = (req, res, next) => {
         if (err) {
             return res.status(401).json({
                 status: 'failed',
-                message: 'Unauthorized. silahkan sign in terlebih dahulu'
+                message: 'Unauthorized. silahkan sign in terlebih dahulu',
+                isLogged: false
             })
         }
         req.decoded = decoded;
