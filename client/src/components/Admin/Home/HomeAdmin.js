@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './HomeAdmin.module.css'
+import style from './HomeAdmin.module.css';
 
 function Home() {
     return (
