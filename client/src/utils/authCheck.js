@@ -1,7 +1,9 @@
+import Cookies from 'js-cookie';
+
 const authCheck = () => {
-    const user = JSON.parse(localStorage.getItem('userData'));
-    if (user && user.isLogged) {
-        return user.isLogged;
+    const token = Cookies.get('token');
+    if (token) {
+        return true;
     }
     return false;
 };

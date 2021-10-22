@@ -1,13 +1,12 @@
 const jwt = require('jsonwebtoken');
 
 exports.auth = (req, res, next) => {
-    const token = req.header('Authorization')
+    const token = req.cookies.token
 
     if (!token) {
         return res.status(401).json({
             status: 'failed',
-            message: 'Unauthorized',
-            isLogged: false
+            message: 'Unauthorized'
         })
     }
 
@@ -15,8 +14,7 @@ exports.auth = (req, res, next) => {
         if (err) {
             return res.status(401).json({
                 status: 'failed',
-                message: 'Unauthorized. silahkan sign in terlebih dahulu',
-                isLogged: false
+                message: 'Unauthorized. silahkan sign in terlebih dahulu'
             })
         }
         req.decoded = decoded;
