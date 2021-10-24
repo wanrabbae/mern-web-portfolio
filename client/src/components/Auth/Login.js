@@ -9,10 +9,13 @@ function Login() {
         username: '',
         password: '',
     });
+    const [isPending, setIsPending] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+        setIsPending(true)
         e.preventDefault();
-        dispatch(signinAction(formData))
+        await dispatch(signinAction(formData))
+        setIsPending(false)
     }
 
     return (
@@ -32,7 +35,16 @@ function Login() {
                                     <input name="password" required type="password" className={`form-control text-white bg-transparent ${style.input}`} id="password" onChange={e => setFormData({ ...formData, password: e.target.value })} />
                                 </div>
                                 <div className="form-group mb-3">
-                                    <button className={`btn ${style.btnSubmit} text-white`} type="submit" name="submit" onClick={handleSubmit}>Sign in</button>
+                                    {
+                                        isPending ?
+                                            <button disabled className={`btn ${style.btnSubmit} text-white`} type="submit" name="submit" onClick={handleSubmit}>
+                                                <div className="spinner-border text-white" role="status">
+                                                    <span className="sr-only">Loading...</span>
+                                                </div>
+                                            </button>
+                                            :
+                                            <button className={`btn ${style.btnSubmit} text-white`} type="submit" name="submit" onClick={handleSubmit}>Sign in</button>
+                                    }
                                 </div>
                             </form>
                         </div>

@@ -40,6 +40,9 @@ function App() {
     <div className="App">
       <ToastContainer autoClose={3000} toastClassName="dark-toast" toastStyle={{ backgroundColor: "#1d1f28" }} />
       <BrowserRouter>
+
+        {/* Harusnya ini pke metode secure route tp masih blm implementasi karena blm tau :) AWKOAKOWKWOK */}
+
         {isLogin ? <div>
           <NavbarAdmin isLogged={setIsLogin} />
           <Switch>
