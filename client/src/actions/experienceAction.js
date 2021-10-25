@@ -9,7 +9,7 @@ export const getExperiences = () => async (dispatch) => {
         } = await getExperiencesApi();
         dispatch({
             type: 'GET_EXPERIENCES',
-            payload: data
+            payload: data.data
         })
     } catch (error) {
         console.log(error.message);

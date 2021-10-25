@@ -2,9 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 function ProjectsAdmin() {
-    const { data } = useSelector(state => state.projects);
-
-    if (data === undefined) return <div>Loading...</div>
+    const data = useSelector(state => state.projects);
 
     const project = data.map((prj, i) => {
         return (

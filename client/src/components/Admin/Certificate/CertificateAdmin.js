@@ -2,9 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 function CertificateAdmin() {
-    const { data } = useSelector(state => state.certificates);
-
-    if (data === undefined) return <div>Loading...</div>
+    const data = useSelector(state => state.certificates);
 
     const certificate = data.map((crtf, i) => {
         return (

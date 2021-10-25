@@ -4,7 +4,7 @@ import { getEducationsApi, deleteEducationApi, createEducationApi } from '../api
 export const getEducations = () => async (dispatch) => {
     try {
         const { data } = await getEducationsApi();
-        dispatch({ type: 'GET_EDUCATIONS', payload: data })
+        dispatch({ type: 'GET_EDUCATIONS', payload: data.data })
     } catch (error) {
         console.log(error.message);
     }
@@ -13,8 +13,7 @@ export const getEducations = () => async (dispatch) => {
 export const createEducation = (educationData) => async (dispatch) => {
     try {
         const { data } = await createEducationApi(educationData);
-        console.log(data);
-        dispatch({ type: 'CREATE_EDUCATION', payload: data });
+        dispatch({ type: 'CREATE_EDUCATION', payload: data.data });
         toast.success("Education Created Successfully")
     } catch (error) {
         console.log(error);

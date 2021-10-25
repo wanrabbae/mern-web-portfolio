@@ -55,7 +55,8 @@ const postEducationContent = async (req, res) => {
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'Education content has been successfully added'
+            message: 'Education content has been successfully added',
+            data: education
         });
     } catch (error) {
         res.status(500).json({

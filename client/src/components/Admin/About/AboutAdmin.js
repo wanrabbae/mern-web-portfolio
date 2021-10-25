@@ -2,11 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 function AboutAdmin() {
-    const { data } = useSelector(state => state.abouts);
-
-    if (data === undefined) {
-        return <div>Loading...</div>
-    }
+    const data = useSelector(state => state.abouts);
 
     const about = data.map((abt, i) => {
         return (

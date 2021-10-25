@@ -2,9 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 function SkillsAdmin() {
-    const { data } = useSelector(state => state.skills);
-
-    if (data === undefined) return <div>Loading...</div>
+    const data = useSelector(state => state.skills);
 
     const skill = data.map((skl, i) => {
         return (

@@ -2,9 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 function ExperienceAdmin() {
-    const { data } = useSelector(state => state.experiences);
-
-    if (data === undefined) return <div>Loading...</div>
+    const data = useSelector(state => state.experiences);
 
     const experience = data.map((exp) => {
         return (

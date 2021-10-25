@@ -7,8 +7,8 @@ export const getAbout = () => async (dispatch) => {
         const { data } = await getAboutApi();
         dispatch({
             type: 'GET_ABOUT',
-            payload: data
-        })
+            payload: data.data
+        });
     } catch (error) {
         console.log(error.message);
     }

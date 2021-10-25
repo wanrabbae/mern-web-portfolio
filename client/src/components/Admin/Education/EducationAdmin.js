@@ -4,7 +4,7 @@ import { deleteEducation, createEducation } from '../../../actions/educationActi
 // import moment from 'moment';
 
 function EducationAdmin() {
-    const { data } = useSelector(state => state.educations);
+    const data = useSelector(state => state.educations);
     const dispatch = useDispatch();
     const [educations, setEducations] = useState({
         title: '',
@@ -14,17 +14,19 @@ function EducationAdmin() {
         endDate: '',
     });
 
-    const createEducationHandler = (e) => {
-        e.preventDefault();
-        createEducation(educations)
+    const createEducationHandler = () => {
+        dispatch(createEducation(educations));
+        setEducations({
+            title: '',
+            school: '',
+            city: '',
+            startDate: '',
+            endDate: '',
+        });
     }
 
     const deleteHandler = (id) => {
-        dispatch(deleteEducation(id))
-    }
-
-    if (data === undefined) {
-        return <div>Loading...</div>
+        dispatch(deleteEducation(id));
     }
 
     const education = data.map((edu, i) => {
@@ -76,6 +78,7 @@ function EducationAdmin() {
                     </div>
                 </div>
             </div>
+
             {/* Modal crate education */}
             <div className="modal fade" id="createEdu">
                 <div className="modal-dialog modal-dialog-centered">
@@ -84,34 +87,32 @@ function EducationAdmin() {
                             <h5 className="modal-title" id="exampleModalLabel">Create Education</h5>
                             <button type="button" className="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form>
-                            <div className="modal-body">
-                                <div className="form-group mb-3">
-                                    <label htmlFor="title">Title</label>
-                                    <input name="title" required type="text" className={`form-control text-white bg-transparent`} id="title" onChange={e => setEducations({ ...educations, title: e.target.value })} />
-                                </div>
-                                <div className="form-group mb-3">
-                                    <label htmlFor="school">School</label>
-                                    <input name="school" required type="text" className={`form-control text-white bg-transparent`} id="school" onChange={e => setEducations({ ...educations, school: e.target.value })} />
-                                </div>
-                                <div className="form-group mb-3">
-                                    <label htmlFor="city">City</label>
-                                    <input name="city" required type="text" className={`form-control text-white bg-transparent`} id="city" onChange={e => setEducations({ ...educations, city: e.target.value })} />
-                                </div>
-                                <div className="form-group mb-3">
-                                    <label htmlFor="startDate">Start Date</label>
-                                    <input name="startDate" required type="date" className={`form-control text-white bg-transparent`} id="startDate" onChange={e => setEducations({ ...educations, startDate: e.target.value })} />
-                                </div>
-                                <div className="form-group mb-3">
-                                    <label htmlFor="endDate">End Date</label>
-                                    <input name="endDate" required type="date" className={`form-control text-white bg-transparent`} id="endDate" onChange={e => setEducations({ ...educations, endDate: e.target.value })} />
-                                </div>
+                        <div className="modal-body">
+                            <div className="form-group mb-3">
+                                <label htmlFor="title">Title</label>
+                                <input value={educations.title} name="title" required type="text" className={`form-control text-white bg-transparent`} id="title" onChange={e => setEducations({ ...educations, title: e.target.value })} />
                             </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="submit" className="btn btn-primary" onClick={createEducationHandler}>Save</button>
+                            <div className="form-group mb-3">
+                                <label htmlFor="school">School</label>
+                                <input value={educations.school} name="school" required type="text" className={`form-control text-white bg-transparent`} id="school" onChange={e => setEducations({ ...educations, school: e.target.value })} />
                             </div>
-                        </form>
+                            <div className="form-group mb-3">
+                                <label htmlFor="city">City</label>
+                                <input value={educations.city} name="city" required type="text" className={`form-control text-white bg-transparent`} id="city" onChange={e => setEducations({ ...educations, city: e.target.value })} />
+                            </div>
+                            <div className="form-group mb-3">
+                                <label htmlFor="startDate">Start Date</label>
+                                <input value={educations.startDate} name="startDate" required type="date" className={`form-control text-white bg-transparent`} id="startDate" onChange={e => setEducations({ ...educations, startDate: e.target.value })} />
+                            </div>
+                            <div className="form-group mb-3">
+                                <label htmlFor="endDate">End Date</label>
+                                <input value={educations.endDate} name="endDate" required type="date" className={`form-control text-white bg-transparent`} id="endDate" onChange={e => setEducations({ ...educations, endDate: e.target.value })} />
+                            </div>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" name="submit" className="btn btn-primary" onClick={createEducationHandler}>Save</button>
+                        </div>
                     </div>
                 </div>
             </div>

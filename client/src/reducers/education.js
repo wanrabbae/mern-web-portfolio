@@ -7,7 +7,7 @@ const educationReducer = (state = [], action) => {
             return [...state, action.payload];
 
         case 'DELETE_EDUCATION':
-            return state.data.filter((edu) => edu._id !== action.payload);
+            return state.filter((edu) => edu._id !== action.payload);
 
         default:
             return state;
