@@ -53,7 +53,8 @@ const postSkillContent = async (req, res) => {
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'Skill content has been successfully added'
+            message: 'Skill content has been successfully added',
+            data: skill
         });
     } catch (error) {
         res.status(500).json({

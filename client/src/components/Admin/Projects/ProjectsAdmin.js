@@ -55,7 +55,13 @@ function ProjectsAdmin() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {project}
+                                {data.length === 0 ? <tr>
+                                    <td colSpan="9" className="text-center">
+                                        <div class="alert alert-warning" role="alert">
+                                            No Projects Content
+                                        </div>
+                                    </td>
+                                </tr> : project}
                             </tbody>
                         </table>
                     </div>

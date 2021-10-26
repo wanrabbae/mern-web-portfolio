@@ -42,7 +42,7 @@ const postCertificateContent = async (req, res) => {
     try {
         const cloudinaryUpload = await cloudinary.uploader.upload(req.file.path);
 
-        await CertificateModel.create({
+        const certificate = await CertificateModel.create({
             image: {
                 url: cloudinaryUpload.secure_url,
                 cloudinary_id: cloudinaryUpload.public_id
@@ -54,7 +54,8 @@ const postCertificateContent = async (req, res) => {
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'Certificate content has been successfully added'
+            message: 'Certificate content has been successfully added',
+            data: certificate
         });
     } catch (error) {
         res.status(500).json({

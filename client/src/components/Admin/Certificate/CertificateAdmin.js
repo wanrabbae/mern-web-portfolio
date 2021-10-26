@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 function CertificateAdmin() {
     const data = useSelector(state => state.certificates);
+
+    let formData = new FormData();
+
+    const handleChange = (e) => {
+        console.log(e.target.files[0]);
+    }
+
+    const createCertificateHandler = () => {
+        console.log(formData);
+    }
 
     const certificate = data.map((crtf, i) => {
         return (
@@ -27,7 +37,7 @@ function CertificateAdmin() {
             <div className="row mt-5" data-aos="fade-left" data-aos-duration="1000">
                 <div className="col-md-12">
                     <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-                        <button className="btn btn-success" type="button">Add Certificate</button>
+                        <button className="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#createCrtfct">Add Certificate</button>
                     </div>
                     <div className="table-responsive">
                         <table className="table">
@@ -39,9 +49,37 @@ function CertificateAdmin() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {certificate}
+                                {data.length === 0 ? <tr>
+                                    <td colSpan="9" className="text-center">
+                                        <div class="alert alert-warning" role="alert">
+                                            No Certificate Content
+                                        </div>
+                                    </td>
+                                </tr> : certificate}
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+
+            {/* Modal crate education */}
+            <div className="modal fade" id="createCrtfct">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content" style={{ backgroundColor: "#1d1f28" }}>
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Create Certificate</h5>
+                            <button type="button" className="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="form-group mb-3">
+                                <label htmlFor="image">Upload Certificate</label>
+                                <input value={certificate.image} name="image" required type="file" className={`form-control text-white bg-transparent`} id="image" onChange={handleChange} />
+                            </div>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" name="submit" className="btn btn-primary" onClick={createCertificateHandler}>Save</button>
+                        </div>
                     </div>
                 </div>
             </div>
