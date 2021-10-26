@@ -59,7 +59,8 @@ const postExperienceContent = async (req, res) => {
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'Experience content has been successfully added'
+            message: 'Experience content has been successfully added',
+            data: experience
         });
     } catch (error) {
         res.status(500).json({

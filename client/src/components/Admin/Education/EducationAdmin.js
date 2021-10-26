@@ -72,7 +72,13 @@ function EducationAdmin() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {education}
+                                {data.length === 0 ? <tr>
+                                    <td colSpan="9" className="text-center">
+                                        <div class="alert alert-warning" role="alert">
+                                            No Education Content
+                                        </div>
+                                    </td>
+                                </tr> : education}
                             </tbody>
                         </table>
                     </div>

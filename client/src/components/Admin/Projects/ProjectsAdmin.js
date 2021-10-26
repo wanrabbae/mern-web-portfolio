@@ -21,8 +21,8 @@ function ProjectsAdmin() {
                     <a href={prj.github}>Link</a>
                 </td>
                 <td>
-                    <a href="www.google.com" className="btn btn-danger me-2">Delete</a>
-                    <a href="www.google.com" className="btn btn-warning text-white" >Edit</a>
+                    <button className="btn btn-danger me-2">Delete</button>
+                    <button className="btn btn-warning text-white" >Edit</button>
                 </td>
             </tr>
         )
