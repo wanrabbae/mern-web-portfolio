@@ -43,7 +43,7 @@ function App() {
 
         {/* Harusnya ini pke metode secure route tp masih blm implementasi karena blm tau :) AWKOAKOWKWOK */}
 
-        {isLogin ? <div>
+        {isLogin ? <>
           <NavbarAdmin isLogged={setIsLogin} />
           <Switch>
             <div className="container py-5">
@@ -56,8 +56,8 @@ function App() {
               <Route path="/certificateadmin" component={CertificateAdmin} />
             </div>
           </Switch>
-        </div>
-          : <div>
+        </>
+          : <>
             <Navbar />
             <Switch>
               <div className="container py-5">
@@ -72,7 +72,7 @@ function App() {
                 <Route path="/signin" component={Login} />
               </div>
             </Switch>
-          </div>}
+          </>}
       </BrowserRouter>
     </div>
   );

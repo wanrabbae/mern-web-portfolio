@@ -38,9 +38,8 @@ function Login() {
                                     {
                                         isPending ?
                                             <button disabled className={`btn ${style.btnSubmit} text-white`} type="submit" name="submit" onClick={handleSubmit}>
-                                                <div className="spinner-border text-white" role="status">
-                                                    <span className="sr-only">Loading...</span>
-                                                </div>
+                                                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                Logging...
                                             </button>
                                             :
                                             <button className={`btn ${style.btnSubmit} text-white`} type="submit" name="submit" onClick={handleSubmit}>Sign in</button>

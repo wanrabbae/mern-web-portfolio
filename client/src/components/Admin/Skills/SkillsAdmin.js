@@ -5,6 +5,7 @@ import { createSkill, deleteSkill } from '../../../actions/skillAction';
 function SkillsAdmin() {
     const data = useSelector(state => state.skills);
     const dispatch = useDispatch();
+    const [isPending, setIsPending] = useState(false);
     const [skills, setSkills] = useState({
         languages: '',
         frontend: '',
@@ -12,14 +13,16 @@ function SkillsAdmin() {
         tools: '',
     })
 
-    const createSkillHandler = () => {
-        dispatch(createSkill(skills));
+    const createSkillHandler = async () => {
+        setIsPending(true);
+        await dispatch(createSkill(skills));
         setSkills({
             languages: '',
             frontend: '',
             backend: '',
             tools: '',
         })
+        setIsPending(false);
     }
 
     const deleteSkillHandler = (id) => {
@@ -69,7 +72,7 @@ function SkillsAdmin() {
                             <tbody>
                                 {data.length === 0 ? <tr>
                                     <td colSpan="9" className="text-center">
-                                        <div class="alert alert-warning" role="alert">
+                                        <div className="alert alert-warning" role="alert">
                                             No Skill Content
                                         </div>
                                     </td>
@@ -108,7 +111,15 @@ function SkillsAdmin() {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" name="submit" className="btn btn-primary" onClick={createSkillHandler}>Save</button>
+                            {
+                                isPending ?
+                                    <button type="button" className="btn btn-primary" disabled>
+                                        <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                        Saving...
+                                    </button>
+                                    :
+                                    <button type="button" className="btn btn-primary" onClick={createSkillHandler}>Save</button>
+                            }
                         </div>
                     </div>
                 </div>

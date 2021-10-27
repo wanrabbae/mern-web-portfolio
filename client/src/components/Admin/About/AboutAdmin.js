@@ -43,7 +43,7 @@ function AboutAdmin() {
                             <tbody>
                                 {data.length === 0 ? <tr>
                                     <td colSpan="9" className="text-center">
-                                        <div class="alert alert-warning" role="alert">
+                                        <div className="alert alert-warning" role="alert">
                                             No About Content
                                         </div>
                                     </td>

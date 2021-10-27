@@ -5,6 +5,7 @@ import { createExperience, deleteExperience } from '../../../actions/experienceA
 function ExperienceAdmin() {
     const data = useSelector(state => state.experiences);
     const dispatch = useDispatch();
+    const [isPending, setIsPending] = useState(false);
     const [experiences, setExperiences] = useState({
         title: '',
         company: '',
@@ -15,8 +16,9 @@ function ExperienceAdmin() {
         technologies: '',
     });
 
-    const createExperienceHandler = () => {
-        dispatch(createExperience(experiences));
+    const createExperienceHandler = async () => {
+        setIsPending(true);
+        await dispatch(createExperience(experiences));
         setExperiences({
             title: '',
             company: '',
@@ -26,6 +28,7 @@ function ExperienceAdmin() {
             description: '',
             technologies: '',
         });
+        setIsPending(false);
     }
 
     const deleteExeperienceHandler = (id) => {
@@ -81,7 +84,7 @@ function ExperienceAdmin() {
                             <tbody>
                                 {data.length === 0 ? <tr>
                                     <td colSpan="9" className="text-center">
-                                        <div class="alert alert-warning" role="alert">
+                                        <div className="alert alert-warning" role="alert">
                                             No Experience Content
                                         </div>
                                     </td>
@@ -140,7 +143,15 @@ function ExperienceAdmin() {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" name="submit" className="btn btn-primary" onClick={createExperienceHandler}>Save</button>
+                            {
+                                isPending ?
+                                    <button type="button" className="btn btn-primary" disabled>
+                                        <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                        Saving...
+                                    </button>
+                                    :
+                                    <button type="button" className="btn btn-primary" onClick={createExperienceHandler}>Save</button>
+                            }
                         </div>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ import { deleteEducation, createEducation } from '../../../actions/educationActi
 function EducationAdmin() {
     const data = useSelector(state => state.educations);
     const dispatch = useDispatch();
+    const [isPending, setIsPending] = useState(false);
     const [educations, setEducations] = useState({
         title: '',
         school: '',
@@ -14,8 +15,9 @@ function EducationAdmin() {
         endDate: '',
     });
 
-    const createEducationHandler = () => {
-        dispatch(createEducation(educations));
+    const createEducationHandler = async () => {
+        setIsPending(true);
+        await dispatch(createEducation(educations));
         setEducations({
             title: '',
             school: '',
@@ -23,6 +25,7 @@ function EducationAdmin() {
             startDate: '',
             endDate: '',
         });
+        setIsPending(false);
     }
 
     const deleteHandler = (id) => {
@@ -74,7 +77,7 @@ function EducationAdmin() {
                             <tbody>
                                 {data.length === 0 ? <tr>
                                     <td colSpan="9" className="text-center">
-                                        <div class="alert alert-warning" role="alert">
+                                        <div className="alert alert-warning" role="alert">
                                             No Education Content
                                         </div>
                                     </td>
@@ -117,7 +120,15 @@ function EducationAdmin() {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" name="submit" className="btn btn-primary" onClick={createEducationHandler}>Save</button>
+                            {
+                                isPending ?
+                                    <button type="button" className="btn btn-primary" disabled>
+                                        <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                        Saving...
+                                    </button>
+                                    :
+                                    <button type="button" className="btn btn-primary" onClick={createEducationHandler}>Save</button>
+                            }
                         </div>
                     </div>
                 </div>
