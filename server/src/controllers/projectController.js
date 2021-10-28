@@ -48,7 +48,7 @@ const postProjectContent = async (req, res) => {
     try {
         const cloudinaryUpload = await cloudinary.uploader.upload(req.file.path);
 
-        await ProjectModel.create({
+        const project = await ProjectModel.create({
             image: {
                 url: cloudinaryUpload.secure_url,
                 cloudinary_id: cloudinaryUpload.public_id
@@ -65,7 +65,8 @@ const postProjectContent = async (req, res) => {
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'Project content has been successfully added'
+            message: 'Project content has been successfully added',
+            data: project
         });
     } catch (error) {
         res.status(500).json({

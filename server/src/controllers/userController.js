@@ -54,6 +54,7 @@ const getAll = async (req, res) => {
     res.send(result);
 }
 
+// UNCOMMENT THIS IF YOU WANT TO CREATE ADMIN AND DONT FORGET TO CREATE THE ROUTE TOO
 
 // const signup = async (req, res) => {
 //     console.log(req.body);

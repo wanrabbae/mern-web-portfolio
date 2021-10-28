@@ -1,8 +1,17 @@
 import React from 'react';
 import style from './About.module.css';
-import logoImg from '../../../assets/images/logo.png';
+import { useSelector } from 'react-redux';
 
 function About() {
+    const data = useSelector(state => state.abouts);
+
+    if (data.length === 0) {
+        return <div>
+            Loading...
+        </div>
+
+    }
+
     return (
         <div className="py-5">
             <div className="row text-center">
@@ -12,18 +21,11 @@ function About() {
             </div>
             <div className="row justify-content-center align-items-center mt-3" data-aos="fade-down" data-aos-duration="1000">
                 <div className="col-md-4">
-                    <img src={logoImg} alt="logo" width="250" className="img-fluid mx-auto" />
+                    <img src={data[0].profile.url} alt="logo" width="250" className="img-fluid mx-auto" />
                 </div>
                 <div className="col-md-7">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Aperiam, doloremque, eaque, eius, exercitationem,
-                        fugiat, illum, ipsam, itaque, laborum, magni, molestias
-                        natus, nesciunt, nihil, nobis, officiis, omnis,
-                        perferendis, quaerat, quas, quisquam, quod, ratione,
-                        repellendus, rerum, sapiente, sequi, similique,
-                        sunt, tempora, tenetur, totam, ut, vel, veritatis,
-                        vitae, voluptatem.
+                        {data[0].content}
                     </p>
                 </div>
             </div>

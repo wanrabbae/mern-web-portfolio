@@ -1,3 +1,28 @@
 .colorBlue {
     color: #0095EB;
 }
+
+.buttonSocial {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    margin-right: 10px;
+    transition: 0.1s;
+    border-radius: 7px;
+}
+
+.buttonSocialFocus:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+.btnGithub {
+    background-color: #333;
+    color: #fff;
+}
+
+.btnDemo {
+    background-color: #0095EB;
+    color: #fff;
+}

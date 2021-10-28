@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { createSkill, deleteSkill } from '../../../actions/skillAction';
 
 function SkillsAdmin() {
@@ -56,6 +57,9 @@ function SkillsAdmin() {
                 <div className="col-md-12">
                     <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
                         <button className="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#createSkill">Add Skills</button>
+                        <button className="btn btn-primary" type="button">
+                            <NavLink to="/skills" className="text-white text-decoration-none">Preview Content</NavLink>
+                        </button>
                     </div>
                     <div className="table-responsive">
                         <table className="table">

@@ -15,6 +15,9 @@ function Login() {
         setIsPending(true)
         e.preventDefault();
         await dispatch(signinAction(formData))
+        setFormData({
+            password: '',
+        });
         setIsPending(false)
     }
 
@@ -26,15 +29,15 @@ function Login() {
                         <div className="card-body">
                             <h3 className="card-title text-center">Login Only For Administrator!</h3>
                             <form className="mt-3">
-                                <div className="form-group mb-3">
+                                <div className="mb-3">
                                     <label htmlFor="username">Username</label>
-                                    <input name="username" required type="text" className={`form-control text-white bg-transparent ${style.input}`} id="username" onChange={e => setFormData({ ...formData, username: e.target.value })} />
+                                    <input value={formData.username} name="username" required type="text" className={`form-control text-white bg-transparent`} id="username" onChange={e => setFormData({ ...formData, username: e.target.value })} />
                                 </div>
-                                <div className="form-group mb-3">
+                                <div className="mb-3">
                                     <label htmlFor="password">Password</label>
-                                    <input name="password" required type="password" className={`form-control text-white bg-transparent ${style.input}`} id="password" onChange={e => setFormData({ ...formData, password: e.target.value })} />
+                                    <input value={formData.password} name="password" required type="password" className={`form-control text-white bg-transparent ${style.input}`} id="password" onChange={e => setFormData({ ...formData, password: e.target.value })} />
                                 </div>
-                                <div className="form-group mb-3">
+                                <div className="mb-3">
                                     {
                                         isPending ?
                                             <button disabled className={`btn ${style.btnSubmit} text-white`} type="submit" name="submit" onClick={handleSubmit}>

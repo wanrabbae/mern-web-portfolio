@@ -1,7 +1,41 @@
 import React from 'react';
-import style from './Experience.module.css'
+import style from './Experience.module.css';
+import { useSelector } from 'react-redux';
 
 function Experience() {
+    const experience = useSelector(state => state.experiences);
+
+    if (experience.length === 0) {
+        return <div>
+            Loading...
+        </div>
+    }
+
+    const experienceList = experience.map(exp => {
+        return <>
+            <div className="col-md-10" data-aos-duration="1000" data-aos="zoom-in">
+                <div className="card h-100 mb-4 bg-transparent border-0">
+                    <div className="card-body">
+                        <h5 className="card-title">{exp.title}</h5>
+                        <h6 className={`card-subtitle my-3 ${style.colorBlue}`}>
+                            {exp.company} - {exp.city}
+                        </h6>
+                        <p className="card-text">
+                            {exp.startDate} - {exp.endDate}
+                        </p>
+                        <p className="card-text">
+                            {exp.description}
+                        </p>
+                        <p className="card-text">
+                            <span className={style.colorBlue}>Technologies:</span> {exp.technologies}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </>
+    });
+
     return (
         <div className="py-5">
             <div className="row text-center">
@@ -10,51 +44,7 @@ function Experience() {
                 </div>
             </div>
             <div className="row mt-3">
-                <div className="col-md-10" data-aos-duration="1000" data-aos="zoom-in">
-                    <div className="card h-100 mb-4 bg-transparent border-0">
-                        <div className="card-body">
-                            <h5 className="card-title">Software Engineer</h5>
-                            <h6 className={`card-subtitle my-3 ${style.colorBlue}`}>
-                                Google - City
-                            </h6>
-                            <p className="card-text">
-                                jan 2020 - dec 2020
-                            </p>
-                            <p className="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vestibulum tincidunt est vitae ultrices accumsan.
-                                Aliquam ornare lacus adipiscing, posuere lectus et,
-                                blandit augue.
-                            </p>
-                            <p className="card-text">
-                                <span className={style.colorBlue}>Technologies:</span> React, Redux, Node.js, Express, MongoDB,
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <hr />
-                <div className="col-md-10" data-aos-duration="1000" data-aos="zoom-in">
-                    <div className="card h-100 mb-4 bg-transparent border-0">
-                        <div className="card-body">
-                            <h5 className="card-title">Backend Engineer</h5>
-                            <h6 className={`card-subtitle my-3 ${style.colorBlue}`}>
-                                Facebook - City
-                            </h6>
-                            <p className="card-text">
-                                jan 2021 - dec 2021
-                            </p>
-                            <p className="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vestibulum tincidunt est vitae ultrices accumsan.
-                                Aliquam ornare lacus adipiscing, posuere lectus et,
-                                blandit augue.
-                            </p>
-                            <p className="card-text">
-                                <span className={style.colorBlue}>Technologies:</span> React, Redux, Node.js, Express, MongoDB,
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                {experienceList}
             </div>
         </div>
     );

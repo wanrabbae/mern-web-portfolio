@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { deleteEducation, createEducation } from '../../../actions/educationAction';
 // import moment from 'moment';
 
@@ -60,6 +61,9 @@ function EducationAdmin() {
                 <div className="col-md-12">
                     <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
                         <button className="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#createEdu">Add Education</button>
+                        <button className="btn btn-primary" type="button">
+                            <NavLink to="/education" className="text-white text-decoration-none">Preview Content</NavLink>
+                        </button>
                     </div>
                     <div className="table-responsive">
                         <table className="table">

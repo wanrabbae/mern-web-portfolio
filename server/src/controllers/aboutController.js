@@ -22,7 +22,7 @@ const postAboutContent = async (req, res) => {
     try {
         const cloudinaryUpload = await cloudinary.uploader.upload(req.file.path);
 
-        await AboutModel.create({
+        const about = await AboutModel.create({
             profile: {
                 url: cloudinaryUpload.secure_url,
                 cloudinary_id: cloudinaryUpload.public_id
@@ -35,7 +35,8 @@ const postAboutContent = async (req, res) => {
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'About content has been successfully added'
+            message: 'About content has been successfully added',
+            data: about
         });
     } catch (error) {
         res.status(500).json({

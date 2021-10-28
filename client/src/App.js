@@ -1,7 +1,7 @@
 import React from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import './App.css'
+import './App.css';
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -28,6 +28,7 @@ import Skills from "./components/User/Skills/Skills";
 import Projects from "./components/User/Projects/Projects";
 import Certificate from "./components/User/Certificate/Certificate";
 import Contact from "./components/User/Contact/Contact";
+import NotFound from "./components/User/NotFound/NotFound";
 
 // utils
 import authCheck from "./utils/authCheck";
@@ -54,7 +55,17 @@ function App() {
               <Route path="/skillsadmin" component={SkillsAdmin} />
               <Route path="/projectsadmin" component={ProjectsAdmin} />
               <Route path="/certificateadmin" component={CertificateAdmin} />
+              <Route path="/about" component={About} />
+              <Route path="/education" component={Education} />
+              <Route path="/experience" component={Experience} />
+              <Route path="/skills" component={Skills} />
+              <Route path="/projects" component={Projects} />
+              <Route path="/certificate" component={Certificate} />
+              <Route path="/contact" component={Contact} />
             </div>
+            <Route path="*">
+              <NotFound />
+            </Route>
           </Switch>
         </>
           : <>
@@ -71,6 +82,9 @@ function App() {
                 <Route path="/contact" component={Contact} />
                 <Route path="/signin" component={Login} />
               </div>
+              <Route path="*">
+                <NotFound />
+              </Route>
             </Switch>
           </>}
       </BrowserRouter>

@@ -8,9 +8,7 @@ function Sidebar({ isLogged }) {
 
     const handleLogout = () => {
         isLogged(false);
-
-        Cookies.remove('token', { path: '/' });
-
+        Cookies.set('token', '', { expires: -1 });
         toast.success("Logout Successfully!");
     }
 

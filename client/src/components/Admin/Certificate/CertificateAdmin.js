@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { createCertificate, deleteCertificate } from '../../../actions/certificateAction';
 
 function CertificateAdmin() {
@@ -22,6 +23,7 @@ function CertificateAdmin() {
         setIsPending(true);
         formData.append('image', certificate2.image);
         await dispatch(createCertificate(formData));
+        document.getElementById('image').value = '';
         setIsPending(false);
 
     }
@@ -54,6 +56,9 @@ function CertificateAdmin() {
                 <div className="col-md-12">
                     <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
                         <button className="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#createCrtfct">Add Certificate</button>
+                        <button className="btn btn-primary" type="button">
+                            <NavLink to="/certificate" className="text-white text-decoration-none">Preview Content</NavLink>
+                        </button>
                     </div>
                     <div className="table-responsive">
                         <table className="table">
