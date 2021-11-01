@@ -12,7 +12,7 @@ require('./config/db.js');
 
 app.use(helmet());
 app.use(cors({
-    origin: process.env.ENVIRONMENT === 'development' ? 'http://localhost:3000' : 'https://alwan.vercel.app/',
+    origin: process.env.ENVIRONMENT === 'development' ? 'http://localhost:3000' : 'https://alwan.vercel.app',
     credentials: true
 }));
 app.use(express.json());
