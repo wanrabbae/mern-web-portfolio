@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { createAbout, deleteAbout } from '../../../actions/aboutAction'
+import { createAbout, deleteAbout } from '../../../actions/aboutAction';
 
 function AboutAdmin() {
     const data = useSelector(state => state.abouts);
@@ -42,6 +42,11 @@ function AboutAdmin() {
         await dispacth(deleteAbout(id));
     }
 
+    const editAboutHandler = (id, content) => {
+        console.log(id);
+        console.log(content);
+    }
+
     const about = data.map((abt, i) => {
         return (
             <tr key={abt._id} className="align-middle">
@@ -50,7 +55,7 @@ function AboutAdmin() {
                 <td>{abt.content}</td>
                 <td>
                     <button onClick={() => deleteAboutHandler(abt._id)} className="btn btn-danger me-2">Delete</button>
-                    <button className="btn btn-warning text-white" >Edit</button>
+                    <button onClick={() => editAboutHandler(abt._id, abt.content)} className="btn btn-warning text-white" >Edit</button>
                 </td>
             </tr>
         )

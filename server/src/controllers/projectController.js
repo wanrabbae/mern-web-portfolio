@@ -27,7 +27,7 @@ const getOneProjectContent = async (req, res) => {
 }
 
 const getProjectContent = async (req, res) => {
-    const project = await ProjectModel.find({});
+    const project = await ProjectModel.find({}).sort({_id: -1});
 
     res.json({
         code: 200,
