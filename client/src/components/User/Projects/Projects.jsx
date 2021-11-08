@@ -5,12 +5,6 @@ import { useSelector } from 'react-redux';
 function Projects() {
     const projects = useSelector(state => state.projects);
 
-    if (projects.length === 0) {
-        return <div>
-            Loading...
-        </div>
-    }
-
     const projectsList = projects.map(project => {
         return <>
             <div className="col-md-4 mb-3" data-aos-duration="1000" data-aos="zoom-out">
@@ -34,14 +28,23 @@ function Projects() {
 
     return (
         <div className="py-5">
-            <div className="row text-center">
-                <div className="col">
-                    <h2>Projects</h2>
+            {
+                projects.length === 0 ? 
+                <div className="text-center">
+                    <span className="spinner-border spinner-border-sm" style={{ width: '3rem', height: '3rem' }} role="status" aria-hidden="true"></span>
                 </div>
-            </div>
-            <div className="row mt-3 justify-content-center">
-                {projectsList}
-            </div>
+                :
+                <>
+                    <div className="row text-center">
+                        <div className="col">
+                            <h2>Projects</h2>
+                        </div>
+                    </div>
+                    <div className="row mt-3 justify-content-start">
+                        {projectsList}
+                    </div>
+                </>
+            }
         </div>
     );
 }

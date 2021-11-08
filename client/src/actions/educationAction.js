@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { getEducationsApi, deleteEducationApi, createEducationApi } from '../apis/educationApi';
+import { getEducationsApi, deleteEducationApi, createEducationApi, updateEducationApi } from '../apis/educationApi';
 
 export const getEducations = () => async (dispatch) => {
     try {
@@ -29,5 +29,16 @@ export const deleteEducation = (id) => async (dispatch) => {
     } catch (error) {
         console.log(error);
         toast.error("Failed deleting education! :(")
+    }
+}
+
+export const updateEducation = (educationData) => async (dispatch) => {
+    try {
+        const { data } = await updateEducationApi(educationData.id, educationData);
+        dispatch({ type: 'UPDATE_EDUCATION', payload: data.data });
+        toast.success("Education Updated Successfully")
+    } catch (error) {
+        console.log(error);
+        toast.error("Failed updating education! :(")
     }
 }

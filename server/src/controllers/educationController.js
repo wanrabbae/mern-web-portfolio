@@ -124,22 +124,22 @@ const updateEducationContent = async (req, res) => {
             })
         }
 
-        await EducationModel.updateOne({
-            _id: id
-        }, {
-            $set: {
-                title,
-                school,
-                city,
-                startDate: new Date(startDate).toDateString(),
-                endDate: new Date(endDate).toDateString(),
-            }
-        })
+        const updatedEducation = {
+            _id: id,
+            title,
+            school,
+            city,
+            startDate: new Date(startDate).toDateString(),
+            endDate: new Date(endDate).toDateString(),
+        }
+
+        await EducationModel.updateOne({_id: id}, {$set: updatedEducation}, { new: true })
 
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'Education content has been successfully updated'
+            message: 'Education content has been successfully updated',
+            data: updatedEducation
         })
 
     } catch (error) {

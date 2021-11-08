@@ -1,4 +1,4 @@
-import { createExperienceApi, getExperiencesApi, deleteExperienceApi } from '../apis/experienceApi';
+import { createExperienceApi, getExperiencesApi, deleteExperienceApi, updateExperienceApi } from '../apis/experienceApi';
 import { toast } from 'react-toastify';
 
 export const getExperiences = () => async (dispatch) => {
@@ -29,5 +29,16 @@ export const deleteExperience = (id) => async (dispatch) => {
     } catch (error) {
         console.log(error.message);
         toast.error('Experience deletion failed!');
+    }
+}
+
+export const updateExperience = (experience) => async (dispatch) => {
+    try {
+        const { data } = await updateExperienceApi(experience.id, experience);
+        dispatch({ type: 'UPDATE_EXPERIENCE', payload: data.data });
+        toast.success('Experience updated successfully');
+    } catch (error) {
+        console.log(error.message);
+        toast.error('Experience update failed!');
     }
 }

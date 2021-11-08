@@ -12,7 +12,7 @@ function Login() {
     const [isPending, setIsPending] = useState(false);
 
     const handleSubmit = async (e) => {
-        setIsPending(true)
+        setIsPending(true);
         e.preventDefault();
         await dispatch(signinAction(formData))
         setFormData({

@@ -130,6 +130,17 @@ const updateExperienceContent = async (req, res) => {
             })
         }
 
+        const updatedExperience = {
+            _id: id,
+            title,
+            company,
+            city,
+            startDate,
+            endDate,
+            description,
+            technologies
+        }
+
         await ExperienceModel.updateOne({
             _id: id
         }, {
@@ -147,7 +158,8 @@ const updateExperienceContent = async (req, res) => {
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'Experience content has been successfully updated'
+            message: 'Experience content has been successfully updated',
+            data: updatedExperience
         })
 
     } catch (error) {

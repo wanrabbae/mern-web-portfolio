@@ -5,12 +5,6 @@ import { useSelector } from 'react-redux';
 function Experience() {
     const experience = useSelector(state => state.experiences);
 
-    if (experience.length === 0) {
-        return <div>
-            Loading...
-        </div>
-    }
-
     const experienceList = experience.map(exp => {
         return <>
             <div className="col-md-10" data-aos-duration="1000" data-aos="zoom-in">
@@ -38,14 +32,23 @@ function Experience() {
 
     return (
         <div className="py-5">
-            <div className="row text-center">
-                <div className="col">
-                    <h2>Experience</h2>
+            {
+                experience.length === 0 ? 
+                <div className="text-center">
+                    <span className="spinner-border spinner-border-sm" style={{ width: '3rem', height: '3rem' }} role="status" aria-hidden="true"></span>
                 </div>
-            </div>
-            <div className="row mt-3">
-                {experienceList}
-            </div>
+                :
+                <>
+                    <div className="row text-center">
+                        <div className="col">
+                            <h2>Experience</h2>
+                        </div>
+                    </div>
+                    <div className="row mt-3">
+                        {experienceList}
+                    </div>
+                </>
+            }
         </div>
     );
 }

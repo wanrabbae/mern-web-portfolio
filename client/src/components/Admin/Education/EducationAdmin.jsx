@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { deleteEducation, createEducation } from '../../../actions/educationAction';
+import { deleteEducation, createEducation, updateEducation } from '../../../actions/educationAction';
 // import moment from 'moment';
 
 function EducationAdmin() {
@@ -25,6 +25,7 @@ function EducationAdmin() {
             city: '',
             startDate: '',
             endDate: '',
+            id: '',
         });
         setIsPending(false);
     }
@@ -33,12 +34,11 @@ function EducationAdmin() {
         dispatch(deleteEducation(id));
     }
 
-    // const editEducationModal = (edu) => {
-    //     return (
-    //         // Edit Education Modal
-            
-    //     )
-    // }
+    const updateHandler = async (dataForUpdate) => {
+        setIsPending(true);
+        await dispatch(updateEducation(dataForUpdate));
+        setIsPending(false);
+    }
 
     const education = data.map((edu, i) => {
         return (
@@ -78,7 +78,15 @@ function EducationAdmin() {
             <div className="row mt-5" data-aos="fade-left" data-aos-duration="1000">
                 <div className="col-md-12">
                     <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-                        <button className="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#createEdu">Add Education</button>
+                        <button onClick={() => setEducations({
+                            title: '',
+                            school: '',
+                            city: '',
+                            startDate: '',
+                            endDate: '',
+                        })} 
+                        className="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#createEdu">Add Education</button>
+
                         <button className="btn btn-primary" type="button">
                             <NavLink to="/education" className="text-white text-decoration-none">Preview Content</NavLink>
                         </button>
@@ -165,6 +173,8 @@ function EducationAdmin() {
                             <button type="button" className="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                             <div className="modal-body">
+                                <input value={educations.id} type="hidden" name="id" className={`form-control text-white bg-transparent`} onChange={e => setEducations({ ...educations, id: e.target.value })} />
+
                                 <div className="form-group mb-3">
                                     <label htmlFor="title">Title</label>
                                     <input value={educations.title} name="title" required type="text" className={`form-control text-white bg-transparent`} id="title" onChange={e => setEducations({ ...educations, title: e.target.value })} />
@@ -179,11 +189,11 @@ function EducationAdmin() {
                                 </div>
                                 <div className="form-group mb-3">
                                     <label htmlFor="startDate">Start Date</label>
-                                    <input value={new Date(educations.startDate).getFullYear() + "-" + new Date(educations.startDate).getMonth() + "-" + new Date(educations.startDate).getDay()} name="startDate" required type="date" className={`form-control text-white bg-transparent`} id="startDate" onChange={e => setEducations({ ...educations, startDate: e.target.value })} />
+                                    <input name="startDate" required type="date" className={`form-control text-white bg-transparent`} id="startDate" onChange={e => setEducations({ ...educations, startDate: e.target.value })} />
                                 </div>
                                 <div className="form-group mb-3">
                                     <label htmlFor="endDate">End Date</label>
-                                    <input value={'2014-12-29'} name="endDate" required type="date" className={`form-control text-white bg-transparent`} id="endDate" onChange={e => setEducations({ ...educations, endDate: e.target.value })} />
+                                    <input name="endDate" required type="date" className={`form-control text-white bg-transparent`} id="endDate" onChange={e => setEducations({ ...educations, endDate: e.target.value })} />
                                 </div>
                             </div>
                             <div className="modal-footer">
@@ -195,7 +205,7 @@ function EducationAdmin() {
                                         Saving...
                                     </button>
                                     :
-                                    <button type="button" className="btn btn-primary" onClick={createEducationHandler}>Save</button>
+                                    <button type="button" className="btn btn-primary" onClick={() => updateHandler(educations)}>Save</button>
                             }
                         </div>
                     </div>

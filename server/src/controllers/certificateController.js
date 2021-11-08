@@ -28,7 +28,7 @@ const getOneCertificateContent = async (req, res) => {
 }
 
 const getCertificateContent = async (req, res) => {
-    const certificate = await CertificateModel.find({});
+    const certificate = await CertificateModel.find({}).sort({_id: -1});
 
     res.json({
         code: 200,

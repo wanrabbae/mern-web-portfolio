@@ -9,6 +9,9 @@ const educationReducer = (state = [], action) => {
         case 'DELETE_EDUCATION':
             return state.filter((edu) => edu._id !== action.payload);
 
+        case 'UPDATE_EDUCATION':
+            return state.map((edu) => edu._id === action.payload._id ? action.payload : edu);
+
         default:
             return state;
     }

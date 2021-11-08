@@ -11,3 +11,7 @@ export const createExperienceApi = (experience) => {
 export const deleteExperienceApi = (id) => {
     return api.delete(`/experience/${id}`);
 }
+
+export const updateExperienceApi = (experienceId, data) => {
+    return api.put(`/experience/${experienceId}`, data);
+}
