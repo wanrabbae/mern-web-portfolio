@@ -11,3 +11,7 @@ export const createSkillApi = (skill) => {
 export const deleteSkillApi = (skillId) => {
     return api.delete(`/skills/${skillId}`);
 }
+
+export const updateSkillApi = (skillId, skill) => {
+    return api.put(`/skills/${skillId}`, skill);
+}

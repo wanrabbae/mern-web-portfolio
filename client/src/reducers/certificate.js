@@ -8,6 +8,9 @@ const certificateReducer = (state = [], action) => {
 
         case 'DELETE_CERTIFICATE':
             return state.filter(certificate => certificate._id !== action.payload);
+        
+        case 'UPDATE_CERTIFICATE':
+            return state.map(certificate => certificate._id === action.payload._id ? action.payload : certificate);
 
         default:
             return state;

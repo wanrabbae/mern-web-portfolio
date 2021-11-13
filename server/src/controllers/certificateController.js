@@ -123,6 +123,14 @@ const updateCertificateContent = async (req, res) => {
         // Upload new image to cloudinary
         const cloudinaryUpload = await cloudinary.uploader.upload(req.file.path);
 
+        const updatedCertificate = {
+            _id: id,
+            image: {
+                url: cloudinaryUpload.secure_url,
+                cloudinary_id: cloudinaryUpload.public_id
+            }
+        }
+
         // Update certificate content
         await certificate.updateOne({
             image: {
@@ -136,7 +144,8 @@ const updateCertificateContent = async (req, res) => {
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'Certificate content has been successfully updated'
+            message: 'Certificate content has been successfully updated',
+            data: updatedCertificate
         })
 
     } catch (error) {

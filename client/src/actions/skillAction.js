@@ -1,4 +1,4 @@
-import { getSkillsApi, createSkillApi, deleteSkillApi } from '../apis/skillApi';
+import { getSkillsApi, createSkillApi, deleteSkillApi, updateSkillApi } from '../apis/skillApi';
 import { toast } from 'react-toastify';
 
 export const getSkills = () => async (dispatch) => {
@@ -29,5 +29,16 @@ export const deleteSkill = (id) => async (dispatch) => {
     } catch (error) {
         console.log(error.message);
         toast.error('Error deleting skill');
+    }
+}
+
+export const updateSkill = (skill) => async (dispatch) => {
+    try {
+        const { data } = await updateSkillApi(skill.id, skill);
+        dispatch({ type: 'UPDATE_SKILL', payload: data.data });
+        toast.success('Skill updated successfully');
+    } catch (error) {
+        console.log(error.message);
+        toast.error('Error updating skill');
     }
 }

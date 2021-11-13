@@ -121,6 +121,14 @@ const updateSkillContent = async (req, res) => {
             })
         }
 
+        const updatedSkill = {
+            _id: id,
+            languages,
+            frontend,
+            backend,
+            tools
+        }
+
         await SkillModel.updateOne({
             _id: id
         }, {
@@ -135,7 +143,8 @@ const updateSkillContent = async (req, res) => {
         res.status(200).json({
             code: 200,
             status: 'success',
-            message: 'Skill content has been successfully updated'
+            message: 'Skill content has been successfully updated',
+            data: updatedSkill
         })
 
     } catch (error) {
