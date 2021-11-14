@@ -109,6 +109,7 @@ function AboutAdmin() {
               type="button"
               data-bs-toggle="modal"
               data-bs-target="#createAbout"
+              onClick={() => setAbouts({ profile: "", content: "" })}
             >
               Add About
             </button>

@@ -1,9 +1,9 @@
 import React from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import './App.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import "./App.css";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -39,36 +39,39 @@ function App() {
   const [isLogin, setIsLogin] = React.useState(authCheck());
   return (
     <div className="App">
-      <ToastContainer autoClose={3000} toastClassName="dark-toast" toastStyle={{ backgroundColor: "#1d1f28" }} />
+      <ToastContainer
+        autoClose={3000}
+        toastClassName="dark-toast"
+        toastStyle={{ backgroundColor: "#1d1f28" }}
+      />
       <BrowserRouter>
-
-        {/* Harusnya ini pke metode secure route tp masih blm implementasi karena blm tau :) AWKOAKOWKWOK */}
-
-        {isLogin ? <>
-          <NavbarAdmin isLogged={setIsLogin} />
-          <Switch>
-            <div className="container py-5">
-              <Route exact path="/" component={HomeAdmin} />
-              <Route path="/aboutadmin" component={AboutAdmin} />
-              <Route path="/educationadmin" component={EducationAdmin} />
-              <Route path="/experienceadmin" component={ExperienceAdmin} />
-              <Route path="/skillsadmin" component={SkillsAdmin} />
-              <Route path="/projectsadmin" component={ProjectsAdmin} />
-              <Route path="/certificateadmin" component={CertificateAdmin} />
-              <Route path="/about" component={About} />
-              <Route path="/education" component={Education} />
-              <Route path="/experience" component={Experience} />
-              <Route path="/skills" component={Skills} />
-              <Route path="/projects" component={Projects} />
-              <Route path="/certificate" component={Certificate} />
-              <Route path="/contact" component={Contact} />
-            </div>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
-        </>
-          : <>
+        {isLogin ? (
+          <>
+            <NavbarAdmin isLogged={setIsLogin} />
+            <Switch>
+              <div className="container py-5">
+                <Route exact path="/" component={HomeAdmin} />
+                <Route path="/aboutadmin" component={AboutAdmin} />
+                <Route path="/educationadmin" component={EducationAdmin} />
+                <Route path="/experienceadmin" component={ExperienceAdmin} />
+                <Route path="/skillsadmin" component={SkillsAdmin} />
+                <Route path="/projectsadmin" component={ProjectsAdmin} />
+                <Route path="/certificateadmin" component={CertificateAdmin} />
+                <Route path="/about" component={About} />
+                <Route path="/education" component={Education} />
+                <Route path="/experience" component={Experience} />
+                <Route path="/skills" component={Skills} />
+                <Route path="/projects" component={Projects} />
+                <Route path="/certificate" component={Certificate} />
+                <Route path="/contact" component={Contact} />
+              </div>
+              <Route path="*">
+                <NotFound />
+              </Route>
+            </Switch>
+          </>
+        ) : (
+          <>
             <Navbar />
             <Switch>
               <div className="container py-5">
@@ -86,7 +89,8 @@ function App() {
                 <NotFound />
               </Route>
             </Switch>
-          </>}
+          </>
+        )}
       </BrowserRouter>
     </div>
   );

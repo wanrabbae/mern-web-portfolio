@@ -52,8 +52,8 @@ function About() {
                 className={`${style.emailColor}`}
               >
                 alwanrabbae@gmail.com
-              </a>
-              , or via socials below:
+              </a>{" "}
+              for projects or other, or via socials below:
             </p>
             <div
               className={style.flexBox}

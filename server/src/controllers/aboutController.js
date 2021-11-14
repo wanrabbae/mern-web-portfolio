@@ -92,6 +92,35 @@ const updateAboutContent = async (req, res) => {
       });
     }
 
+    if (!req.file) {
+      // Update about content
+      await about.updateOne({
+        profile: {
+          url: about.profile.url,
+          cloudinary_id: about.profile.cloudinary_id,
+        },
+        content: content,
+      });
+
+      const updatedAbout = {
+        _id: id,
+        profile: {
+          url: about.profile.url,
+          cloudinary_id: about.profile.cloudinary_id,
+        },
+        content: content,
+      };
+
+      res.status(200).json({
+        code: 200,
+        status: "success",
+        message: "About content has been successfully updated",
+        data: updatedAbout,
+      });
+
+      return;
+    }
+
     // Delete image from cloudinary
     await cloudinary.uploader.destroy(about.profile.cloudinary_id);
 
