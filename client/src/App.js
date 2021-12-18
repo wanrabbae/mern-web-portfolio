@@ -85,9 +85,7 @@ function App() {
                 <Route path="/contact" component={Contact} />
                 <Route path="/signin" component={Login} />
               </div>
-              <Route path="*">
-                <NotFound />
-              </Route>
+              <Route path="*" component={NotFound} />
             </Switch>
           </>
         )}
