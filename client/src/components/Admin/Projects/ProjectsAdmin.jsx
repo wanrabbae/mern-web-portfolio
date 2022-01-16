@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import parse from "html-react-parser";
 import {
   createProject,
   deleteProject,
@@ -83,7 +84,7 @@ function ProjectsAdmin() {
           />
         </td>
         <td>{prj.title}</td>
-        <td>{prj.description}</td>
+        <td>{parse(prj.description)}</td>
         <td>{prj.technologies}</td>
         <td>
           <a href={prj.link}>Link</a>

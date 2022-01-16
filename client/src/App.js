@@ -16,6 +16,7 @@ import ExperienceAdmin from "./components/Admin/Experience/ExperienceAdmin.jsx";
 import SkillsAdmin from "./components/Admin/Skills/SkillsAdmin.jsx";
 import ProjectsAdmin from "./components/Admin/Projects/ProjectsAdmin.jsx";
 import CertificateAdmin from "./components/Admin/Certificate/CertificateAdmin.jsx";
+import ContactAdmin from "./components/Admin/Contact/ContactAdmin.jsx";
 
 // User
 import Navbar from "./components/User/Navbar/Navbar.jsx";
@@ -57,13 +58,13 @@ function App() {
                 <Route path="/skillsadmin" component={SkillsAdmin} />
                 <Route path="/projectsadmin" component={ProjectsAdmin} />
                 <Route path="/certificateadmin" component={CertificateAdmin} />
+                <Route path="/contactadmin" component={ContactAdmin} />
                 <Route path="/about" component={About} />
                 <Route path="/education" component={Education} />
                 <Route path="/experience" component={Experience} />
                 <Route path="/skills" component={Skills} />
                 <Route path="/projects" component={Projects} />
                 <Route path="/certificate" component={Certificate} />
-                <Route path="/contact" component={Contact} />
               </div>
               <Route path="*">
                 <NotFound />

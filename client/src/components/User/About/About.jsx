@@ -25,11 +25,11 @@ function About() {
             </div>
           </div>
           <div
-            className="row justify-content-center align-items-center mt-3"
+            className="d-flex justify-content-center align-items-center mt-3"
             data-aos="fade-down"
             data-aos-duration="1000"
           >
-            <div className="col-md-4">
+            <div className="col-md-3">
               <img
                 src={data[0].profile.url}
                 alt="logo"
@@ -37,7 +37,7 @@ function About() {
                 className="img-fluid mx-auto"
               />
             </div>
-            <div className="col-md-7">
+            <div className="col-md-9">
               <p>{parse(data[0].content)}</p>
             </div>
           </div>
