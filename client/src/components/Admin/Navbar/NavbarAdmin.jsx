@@ -36,28 +36,28 @@ function Sidebar({ isLogged }) {
             id="navbarNavAltMarkup"
           >
             <div className="navbar-nav">
-              <NavLink to="/" exact className="nav-link">
+              <NavLink to="/dashboard" exact className="nav-link">
                 Home
               </NavLink>
-              <NavLink to="/aboutadmin" className="nav-link">
+              <NavLink to="/dashboard/about" className="nav-link">
                 About
               </NavLink>
-              <NavLink to="/educationadmin" className="nav-link">
+              <NavLink to="/dashboard/education" className="nav-link">
                 Education
               </NavLink>
-              <NavLink to="/experienceadmin" className="nav-link">
+              <NavLink to="/dashboard/experience" className="nav-link">
                 Experience
               </NavLink>
-              <NavLink to="/skillsadmin" className="nav-link">
+              <NavLink to="/dashboard/skills" className="nav-link">
                 Skills
               </NavLink>
-              <NavLink to="/projectsadmin" className="nav-link">
+              <NavLink to="/dashboard/projects" className="nav-link">
                 Projects
               </NavLink>
-              <NavLink to="/certificateadmin" className="nav-link">
+              <NavLink to="/dashboard/certificate" className="nav-link">
                 Certificate
               </NavLink>
-              <NavLink to="/contactadmin" className="nav-link">
+              <NavLink to="/dashboard/contact" className="nav-link">
                 Contacts
               </NavLink>
             </div>

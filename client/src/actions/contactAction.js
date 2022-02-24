@@ -18,7 +18,7 @@ export const createContact = (educationData) => async (dispatch) => {
   try {
     const { data } = await createContactApi(educationData);
     dispatch({ type: "CREATE_CONTACT", payload: data.data });
-    toast.success("your message has been sent");
+    toast.success("Your message has been sent");
   } catch (error) {
     console.log(error);
     toast.error("Something went wrong :(");

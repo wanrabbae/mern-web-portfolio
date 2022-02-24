@@ -13,7 +13,10 @@ function Contact() {
     message: "",
   });
 
+  const [isPending, setIsPending] = useState(false);
+
   const sendContactHandler = async (e) => {
+    setIsPending(true);
     e.preventDefault();
     await dispatch(createContact(contacts));
     setContacts({
@@ -22,6 +25,7 @@ function Contact() {
       subject: "",
       message: "",
     });
+    setIsPending(false);
   };
 
   return (
@@ -57,7 +61,7 @@ function Contact() {
                   onChange={(e) =>
                     setContacts({ ...contacts, email: e.target.value })
                   }
-                  type="text"
+                  type="email"
                   className={`form-control text-white bg-transparent ${style.input}`}
                   id="email"
                 />
@@ -95,46 +99,34 @@ function Contact() {
             </div>
             <div className="row justify-content-center">
               <div className="col-md-8">
-                <button
-                  onClick={sendContactHandler}
-                  className={`btn ${style.btnSend} text-white`}
-                  type="submit"
-                  name="submit"
-                >
-                  Send
-                </button>
+                {isPending ? (
+                  <button
+                    disabled
+                    className={`btn ${style.btnSend} text-white`}
+                    type="submit"
+                    name="submit"
+                  >
+                    <span
+                      className="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    Sending...
+                  </button>
+                ) : (
+                  <button
+                    onClick={sendContactHandler}
+                    className={`btn ${style.btnSend} text-white`}
+                    type="submit"
+                    name="submit"
+                  >
+                    Send
+                  </button>
+                )}
               </div>
             </div>
           </form>
         </div>
-        {/* <div className="col-md-4">
-                    <div className="row justify-content-center">
-                        <div className="row flex-column text-center mb-3">
-                            <div className="col">
-                                <i className="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div className="col">
-                                <h6>Indonesia, Jawa Barat, Cirebon</h6>
-                            </div>
-                        </div>
-                        <div className="row flex-column text-center mb-3">
-                            <div className="col">
-                                <i className="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div className="col">
-                                <h6>Indonesia, Jawa Barat, Cirebon</h6>
-                            </div>
-                        </div>
-                        <div className="row flex-column text-center mb-3">
-                            <div className="col">
-                                <i className="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div className="col">
-                                <h6>Indonesia, Jawa Barat, Cirebon</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
       </div>
     </div>
   );

@@ -1,0 +1,9 @@
+export { default as NavbarAdmin } from "./Navbar/NavbarAdmin.jsx";
+export { default as AboutAdmin } from "./About/AboutAdmin.jsx";
+export { default as CertificateAdmin } from "./Certificate/CertificateAdmin.jsx";
+export { default as ContactAdmin } from "./Contact/ContactAdmin.jsx";
+export { default as EducationAdmin } from "./Education/EducationAdmin.jsx";
+export { default as ExperienceAdmin } from "./Experience/ExperienceAdmin.jsx";
+export { default as HomeAdmin } from "./Home/HomeAdmin.jsx";
+export { default as ProjectsAdmin } from "./Projects/ProjectsAdmin.jsx";
+export { default as SkillsAdmin } from "./Skills/SkillsAdmin.jsx";

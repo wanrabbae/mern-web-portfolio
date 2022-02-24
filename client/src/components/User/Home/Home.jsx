@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Home.module.css";
+// import moment from "moment";
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
           Hi! I'm <span className={style.nama}>Akhmad Alwan R</span>
         </h1>
         <h3>A Software Developer. 17 years old.</h3>
+        {/* <p id="p">{getLTS}</p> */}
       </div>
     </div>
   );

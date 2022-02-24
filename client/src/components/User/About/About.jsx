@@ -25,7 +25,7 @@ function About() {
             </div>
           </div>
           <div
-            className="d-flex justify-content-center align-items-center mt-3"
+            className="row justify-content-center align-items-center mt-3"
             data-aos="fade-down"
             data-aos-duration="1000"
           >
