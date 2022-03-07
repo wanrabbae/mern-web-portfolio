@@ -25,6 +25,8 @@ function Projects() {
                 <span className={style.colorBlue}>Technologies:</span>{" "}
                 {project.technologies}
               </p>
+            </div>
+            <div className="card-footer">
               <p className="card-text">
                 <a
                   target="_blank"
@@ -65,7 +67,7 @@ function Projects() {
         <>
           <div className="row text-center">
             <div className="col">
-              <h2>Projects</h2>
+              <h2>Portfolio</h2>
             </div>
           </div>
           <div className="row mt-3 justify-content-start">{projectsList}</div>
