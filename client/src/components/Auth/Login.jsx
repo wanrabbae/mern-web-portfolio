@@ -4,7 +4,7 @@ import { signinAction } from "../../actions/authAction";
 import style from "./Login.module.css";
 import { useHistory } from "react-router-dom";
 
-function Login() {
+function Login({ isLogged }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
@@ -16,12 +16,17 @@ function Login() {
   const handleSubmit = async (e) => {
     setIsPending(true);
     e.preventDefault();
-    await dispatch(signinAction(formData));
-    setFormData({
-      password: "",
-    });
-    setIsPending(false);
-    history.push("/dashboard");
+    try {
+      await dispatch(signinAction(formData));
+      setFormData({
+        password: "",
+      });
+      setIsPending(false);
+      isLogged(true);
+      history.push("/");
+    } catch (error) {
+      console.log("Error in login");
+    }
   };
 
   return (

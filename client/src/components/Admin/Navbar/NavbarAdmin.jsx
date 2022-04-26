@@ -36,7 +36,7 @@ function Sidebar({ isLogged }) {
             id="navbarNavAltMarkup"
           >
             <div className="navbar-nav">
-              <NavLink to="/dashboard" exact className="nav-link">
+              <NavLink to="/" exact className="nav-link">
                 Home
               </NavLink>
               <NavLink to="/dashboard/about" className="nav-link">

@@ -14,8 +14,6 @@ export const signinAction = (authData) => async (dispatch) => {
     Cookies.set("token", data.token, { expires: 1, path: "/" });
 
     toast.success("Sign In Successfully!");
-
-    setTimeout(() => (window.location.href = "/dashboard"), 4000);
   } catch (error) {
     toast.error("Incorrect username or password!");
   }

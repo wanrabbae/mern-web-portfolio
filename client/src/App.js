@@ -56,7 +56,7 @@ function App() {
             <NavbarAdmin isLogged={setIsLogin} />
             <Switch>
               <div className="container py-5">
-                <Route exact path="/dashboard" component={HomeAdmin} />
+                <Route exact path="/" component={HomeAdmin} />
                 <Route path="/dashboard/about" component={AboutAdmin} />
                 <Route path="/dashboard/education" component={EducationAdmin} />
                 <Route
@@ -95,7 +95,9 @@ function App() {
                 <Route path="/projects" component={Projects} />
                 <Route path="/certificate" component={Certificate} />
                 <Route path="/contact" component={Contact} />
-                <Route path="/signin" component={Login} />
+                <Route path="/signin">
+                  <Login isLogged={setIsLogin} />
+                </Route>
               </div>
               <Route path="*" component={NotFound} />
             </Switch>

@@ -1,13 +1,10 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const environment = "production"; // change this if you want to test on production
+// const environment = "production"; // change this if you want to test on production
 
 const api = axios.create({
-  baseURL:
-    environment === "development"
-      ? "http://localhost:4000/api"
-      : process.env.REACT_APP_SERVER_URL,
+  baseURL: process.env.REACT_APP_SERVER_URL,
   withCredentials: true,
 });
 
