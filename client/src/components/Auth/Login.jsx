@@ -17,13 +17,12 @@ function Login({ isLogged }) {
     setIsPending(true);
     e.preventDefault();
     try {
-      await dispatch(signinAction(formData));
+      await dispatch(signinAction(formData, isLogged, history));
       setFormData({
+        username: "",
         password: "",
       });
       setIsPending(false);
-      isLogged(true);
-      history.push("/");
     } catch (error) {
       console.log("Error in login");
     }
