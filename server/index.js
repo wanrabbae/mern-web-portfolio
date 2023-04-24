@@ -16,7 +16,7 @@ app.use(
     origin:
       process.env.ENVIRONMENT === "development"
         ? "http://localhost:3000"
-        : "https://alwan.vercel.app",
+        : process.env.CLIENT_URI,
     credentials: true,
   })
 );
